@@ -1,0 +1,7 @@
+// 全局隐藏百度地图logo
+.anchorBL {
+    visibility: hidden;
+  }
+  .BMap_cpyCtrl.BMap_noprint.anchorBL {
+    visibility: hidden;
+  }
