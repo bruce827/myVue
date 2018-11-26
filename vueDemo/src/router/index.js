@@ -15,6 +15,7 @@ import AIARouter from './modules/AIAnswer'
 import startEduRouter from './modules/startEdu'
 import opinionRouter from './modules/opinion'
 import articleRouter from './modules/article'
+import dormRouter from './modules/dorm'
 /** 
  *=========== 路由的详细配置说明==============
  **/
@@ -101,6 +102,8 @@ export const constantRouterMap = [
   // opinionRouter,
   // 微信文章管理
   // articleRouter,
+  // 格力宿舍管理系统
+  dormRouter,
   // 文档
   {
     path: '/documentation',
