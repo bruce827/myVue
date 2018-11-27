@@ -10,39 +10,35 @@
     <!-- 房间使用情况 -->
     <el-row :gutter="32">
       <!-- 社区选择 -->
-      <el-col :md="8">
-        <div class="chart-wrapper" >
-        </div>
+       <el-col :md="8">
+        <rate-card/>
       </el-col>
       <!-- 使用情况图表 -->
-      <el-col :md="16">
+      <el-col :md="16" style="background:#fff;padding:16px 16px">
+        <funnel-chart/>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-// import GithubCorner from '@/components/GithubCorner'
 import PanelGroup from './components/PanelGroup'
 import LineChart from './components/LineChart'
-// import RaddarChart from './components/RaddarChart'
-// import PieChart from './components/PieChart'
-// import BarChart from './components/BarChart'
 import TransactionTable from './components/TransactionTable'
-// import TodoList from './components/TodoList'
 import BoxCard from './components/BoxCard'
-// import UserMap from './components/UserMap'
 import RateCard from './components/RateCard'
+import FunnelChart from './components/FunnelChart'
 
-const line_data = function(){
-  let d = [];
+// 样例数据
+const lineData = function(){
+  let _d = [];
   for(let i=1;i<13;i++){
-    d.push(Math.random()*1000)
+    _d.push(Math.random()*1000)
   }
-  return d
+  return _d
 };
 // 折线图数据
-const lineChartData = {
+const lineChartDataObj = {
 
   newVisitis: {
     expectedData: [122,233,111,33,1122,122,111,222,111,222,111],
@@ -66,26 +62,21 @@ const lineChartData = {
 export default {
   name: 'DashboardAdmin',
   components: {
-    // GithubCorner,
     PanelGroup,
     LineChart,
-    // RaddarChart,
-    // PieChart,
-    // BarChart,
     TransactionTable,
-    // TodoList,
     BoxCard,
-    // UserMap,
     RateCard,
+    FunnelChart
   },
   data() {
     return {
-      lineChartData: lineChartData.newVisitis
+      lineChartData: lineChartDataObj.newVisitis
     }
   },
   methods: {
     handleSetLineChartData(type) {
-      this.lineChartData = lineChartData[type]
+      this.lineChartData = lineChartDataObj[type]
     }
   }
 }

@@ -6,7 +6,7 @@
           <svg-icon icon-class="peoples" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">员工总数</div>
+          <div class="card-panel-text">在住员工</div>
           <count-to :start-val="0" :end-val="102400" :duration="2600" class="card-panel-num"/>
         </div>
       </div>
@@ -17,7 +17,7 @@
           <svg-icon icon-class="message" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">意见总数</div>
+          <div class="card-panel-text">报修总数</div>
           <count-to :start-val="0" :end-val="81212" :duration="3000" class="card-panel-num"/>
         </div>
       </div>
@@ -28,7 +28,7 @@
           <svg-icon icon-class="questionsList" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">始业教育试题</div>
+          <div class="card-panel-text">固定资产总数</div>
           <count-to :start-val="0" :end-val="9280" :duration="3200" class="card-panel-num"/>
         </div>
       </div>
@@ -39,7 +39,7 @@
           <svg-icon icon-class="article" class-name="card-panel-icon"  />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">微信文章</div>
+          <div class="card-panel-text">消息推送</div>
           <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num"/>
         </div>
       </div>

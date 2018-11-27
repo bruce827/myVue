@@ -1,30 +1,38 @@
 <template>
   <el-card class="box-card-component" style="margin-left:8px;">
-    <!-- <div slot="header" class="box-card-header">
-      <img src="https://wpimg.wallstcn.com/e7d23d71-cf19-4b90-a1cc-f56af8c0903d.png">
-    </div> -->
-    <!-- 智能试题淘汰率，始业教育平均分数，意见处理率， -->
+    <h3 class="title">社区使用情况</h3>
     <div style="position:relative;">
-      <!-- <pan-thumb :image="avatar" class="panThumb"/> -->
-      <mallki class-name="mallki-text" text="平台数据分析"/>
-      <div style="padding-top:35px;" class="progress-item">
-        <span>智能试题淘汰率</span>
+      <!-- <mallki class-name="mallki-text" text="查看"/> -->
+      <div style="margin-top:35px;" class="progress-item active">
+        <span>康乐园一期</span>
         <el-progress :percentage="70"/>
       </div>
       <div class="progress-item">
-        <span>始业教育平均分数</span>
+        <span>康乐园二期</span>
         <el-progress :percentage="18"/>
       </div>
       <div class="progress-item">
-        <span>平台意见处理率</span>
+        <span>格力华苑</span>
         <el-progress :percentage="0" status="danger"/>
       </div>
       <div class="progress-item">
-        <span>部门意见处理率</span>
+        <span>银苑新村</span>
         <el-progress :percentage="100" status="success"/>
       </div>
        <div class="progress-item">
-        <span>员工开发人员比例</span>
+        <span>宏华</span>
+        <el-progress :percentage="60" />
+      </div>
+       <div class="progress-item">
+        <span>坦洲</span>
+        <el-progress :percentage="60" />
+      </div>
+       <div class="progress-item">
+        <span>随园</span>
+        <el-progress :percentage="60" />
+      </div>
+       <div class="progress-item">
+        <span>南屏沁园</span>
         <el-progress :percentage="60" />
       </div>
     </div>
@@ -74,7 +82,14 @@ export default {
 }
 </style>
 <style rel="stylesheet/scss" lang="scss" scoped>
+
 .box-card-component {
+  .title{
+    margin:0;
+    padding:0;
+    float:right;
+    opacity:0.7;
+  }
   .box-card-header {
     position: relative;
     height: 220px;
@@ -106,13 +121,22 @@ export default {
     background-color: #fff;
     margin: auto;
     box-shadow: none!important;
+    // 深度作用选择器
     /deep/ .pan-info {
       box-shadow: none!important;
     }
   }
   .progress-item {
+    
     margin-bottom: 23px;
+    box-shadow: 2px 2px 2px #888888;
     font-size: 16px;
+
+  }
+  .active {
+    background: #f4faff;
+    box-shadow: 0 0 0 #888888;
+    
   }
   @media only screen and (max-width: 1510px){
     .mallki-text{

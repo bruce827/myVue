@@ -19,7 +19,7 @@ export default {
     },
     height: {
       type: String,
-      default: "350px"
+      default: "510px"
     },
     autoResize: {
       type: Boolean,
@@ -57,91 +57,66 @@ export default {
     },
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
-        title: {
-          text: "员工总数",
-          right: 0
-        },
-        xAxis: {
-          data: [
-            "1月",
-            "2月",
-            "3月",
-            "4月",
-            "5月",
-            "6月",
-            "7月",
-            "8月",
-            "9月",
-            "10月",
-            "11月",
-            "12月"
-          ],
-          boundaryGap: false,
-          axisTick: {
-            show: false
-          }
-        },
-        grid: {
-          left: 10,
-          right: 10,
-          bottom: 20,
-          top: 30,
-          containLabel: true
-        },
-        tooltip: {
-          trigger: "axis",
-          axisPointer: {
-            type: "cross"
-          },
-          padding: [5, 10]
-        },
-        yAxis: {
-          axisTick: {
-            show: false
-          }
-        },
-        legend: {
-          data: ["2017", "2018"]
-        },
-        series: [
-          {
-            name: "2017",
-            itemStyle: {
-              normal: {
-                color: "#FF005A",
-                lineStyle: {
-                  color: "#FF005A",
-                  width: 2
-                }
-              }
-            },
-            smooth: true,
-            type: "line",
-            data: expectedData,
-            animationDuration: 2800,
-            animationEasing: "cubicInOut"
-          },
-          {
-            name: "2018",
-            smooth: true,
-            type: "line",
-            itemStyle: {
-              normal: {
-                color: "#3888fa",
-                lineStyle: {
-                  color: "#3888fa",
-                  width: 2
+            legend: {
+        data: ['展现','点击','访问','咨询','订单']
+    },
+        "backgroundColor": "#fff",
+    calculable: true,
+    series: [
+        {
+            name:'漏斗图',
+            type:'funnel',
+            left: '10%',
+            top: 60,
+            //x2: 80,
+            bottom: 60,
+            width: '80%',
+            // height: {totalHeight} - y - y2,
+            min: 0,
+            max: 100,
+            minSize: '0%',
+            maxSize: '100%',
+            sort: 'ascending',
+            gap: 2,
+            funnelAlign:'left',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'left'
                 },
-                areaStyle: {
-                  color: "#f3f8ff"
+                emphasis: {
+                    textStyle: {
+                        fontSize: 20
+                    }
                 }
-              }
             },
-            data: actualData,
-            animationDuration: 2800,
-            animationEasing: "quadraticOut"
-          }
-        ]
+            labelLine: {
+                normal: {
+                    length: 10,
+                    lineStyle: {
+                        width: 1,
+                        type: 'solid'
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }
+            },
+            data: [
+                {value: 100, name: 'B1'},
+                {value: 90, name: 'F1'},
+                {value: 75, name: 'F2'},
+                {value: 70, name: 'F3'},
+                {value: 50, name: 'F4'},
+                {value: 30, name: 'F5'},
+                {value: 18, name: 'F6'},
+                {value: 100, name: 'B2'}
+            ]
+        }
+    ]
       });
     },
     initChart() {
