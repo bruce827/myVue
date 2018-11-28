@@ -28,7 +28,7 @@ const dormRouter = {
       component: () => import('@/views/dorm/home'),
       name: '员工收费',
       meta: { title: '员工收费', noCache: true }
-    },
+    }
   ]
 }
 
