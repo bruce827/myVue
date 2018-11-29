@@ -1,0 +1,34 @@
+Collecting django-import-export
+  Using cached https://files.pythonhosted.org/packages/5d/36/98fbfaa069f35aa8f2d3637bf91824edbc73b022f5a15294e028baddaca5/django_import_export-1.1.0-py2.py3-none-any.whl
+Requirement already satisfied: django>=1.8 in /Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages (from django-import-export) (2.1.3)
+Collecting tablib (from django-import-export)
+  Using cached https://files.pythonhosted.org/packages/e4/9f/cba4e1145ca9ec84d9326f7ce38c6b5f37d9be8bc1af1bd8b19c20374095/tablib-0.12.1.tar.gz
+Collecting diff-match-patch (from django-import-export)
+  Using cached https://files.pythonhosted.org/packages/f0/2a/5ba07def0e9107d935aba62cf632afbd0f7c723a98af47ccbcab753d2452/diff-match-patch-20181111.tar.gz
+    Complete output from command python setup.py egg_info:
+    Download error on https://pypi.python.org/simple/setuptools/: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:645) -- Some packages may not be found!
+    Download error on https://pypi.python.org/simple/: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:645) -- Some packages may not be found!
+    No local packages or working download links found for setuptools>=38.6.0
+    Traceback (most recent call last):
+      File "<string>", line 1, in <module>
+      File "/private/var/folders/6f/gzxrgz7d0ps1kh2p495thzgm0000gn/T/pip-install-c8pi_s_s/diff-match-patch/setup.py", line 37, in <module>
+        install_requires=[],
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/distutils/core.py", line 108, in setup
+        _setup_distribution = dist = klass(attrs)
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/setuptools/dist.py", line 320, in __init__
+        self.fetch_build_eggs(attrs['setup_requires'])
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/setuptools/dist.py", line 377, in fetch_build_eggs
+        replace_conflicting=True,
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/pkg_resources/__init__.py", line 852, in resolve
+        dist = best[req.key] = env.best_match(req, ws, installer)
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/pkg_resources/__init__.py", line 1124, in best_match
+        return self.obtain(req, installer)
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/pkg_resources/__init__.py", line 1136, in obtain
+        return installer(requirement)
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/setuptools/dist.py", line 445, in fetch_build_egg
+        return cmd.easy_install(req)
+      File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/setuptools/command/easy_install.py", line 667, in easy_install
+        raise DistutilsError(msg)
+    distutils.errors.DistutilsError: Could not find suitable distribution for Requirement.parse('setuptools>=38.6.0')
+    
+    ----------------------------------------
