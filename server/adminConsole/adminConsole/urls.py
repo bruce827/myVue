@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from xadmin.plugins import xversion
+
 import xadmin
 
+xadmin.autodiscover()
 
-
+from xadmin.plugins import xversion
 #version模块自动注册需要版本控制的 Model
 xversion.register_models()
 
@@ -27,5 +28,5 @@ xadmin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('xadmin',xadmin.site.urls)
+    path('xadmin/',xadmin.site.urls)
 ]

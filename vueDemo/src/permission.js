@@ -1,17 +1,25 @@
+/*
+ * @作者: 徐健 
+ * @日期: 2018-12-03 10:45:17 
+ * @最后修改:   徐健 
+ * @最后修改时间: 2018-12-03 10:45:17 
+ */
+
 import router from './router'
 import store from './store'
 import {
   Message
 } from 'element-ui'
-import NProgress from 'nprogress' // progress bar
-import 'nprogress/nprogress.css' // progress bar style
+import NProgress from 'nprogress' // 进度条
+import 'nprogress/nprogress.css' // 进度条样式
 import {
   getToken
 } from '@/utils/auth' // getToken from cookie
 
+// 进度条配置选项
 NProgress.configure({
   showSpinner: false
-}) // NProgress Configuration
+}) 
 
 // permission judge function
 function hasPermission(roles, permissionRoles) {
