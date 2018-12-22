@@ -18,7 +18,9 @@
     </div>
 
     <div :key="'checkPermission'+key" style="margin-top:30px;">
-      <code>In some cases it is not suitable to use v-permission, such as element Tab component  which can only be achieved by manually setting the v-if.
+      <code>
+        In some cases it is not suitable to use v-permission, such as element Tab component  which can only be achieved by manually setting the v-if.<br>
+        在一些情况下，以上情况可能不能满足使用v-permission进行角色的切换，有时需要配合v-if显示自定义的内容，比如tab页。
         <br> e.g.
       </code>
       <el-tabs type="border-card" style="width:500px;">

@@ -4,7 +4,6 @@
  * @最后修改:   徐健 
  * @最后修改时间: 2018-12-03 10:45:17 
  */
-
 import router from './router'
 import store from './store'
 import {
@@ -18,13 +17,20 @@ import {
 
 // 进度条配置选项
 NProgress.configure({
-  showSpinner: false
+  // 简单的旋转图标
+  showSpinner: true
 }) 
 
-// permission judge function
+// 判断用户权限
 function hasPermission(roles, permissionRoles) {
-  if (roles.indexOf('admin') >= 0) return true // admin permission passed directly
-  if (!permissionRoles) return true
+  // 如果用户具备admin权限则直接跳过验证
+  if (roles.indexOf('admin') >= 0) return true 
+  // 不是admin权限用户时，跳过后台验证
+  if (!permissionRoles) {
+    console.log('未启动后台,跳过验证')
+    return true
+  }
+  // 正常情况获取后台数据
   return roles.some(role => permissionRoles.indexOf(role) >= 0)
 }
 // 配置白名单，在此列表中的页面不需要进行重定向

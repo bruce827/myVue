@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/transaction'
+import { fetchList } from '../api/transaction.js'
 
 export default {
   filters: {
