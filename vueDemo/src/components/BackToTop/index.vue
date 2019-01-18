@@ -1,5 +1,5 @@
 <template>
-  <transition :name="transitionName">
+  <!-- <transition :name="transitionName"> -->
     <div v-show="visible" :style="customStyle" class="back-to-ceiling" @click="backToTop">
       <svg width="16" height="16" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" class="Icon Icon--backToTopArrow" aria-hidden="true" style="height: 16px; width: 16px;">
         <title>回到顶部</title>
@@ -8,7 +8,7 @@
         </g>
       </svg>
     </div>
-  </transition>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      this.visible = window.pageYOffset > this.visibilityHeight
+      this.visible = window.pageYOffset > this.visibilityHeight;
     },
     backToTop() {
       if (this.isMoving) return

@@ -15,7 +15,7 @@
         {{ scope.row.price | toThousandFilter }}
       </template>
     </el-table-column>
-    <el-table-column label="Status" width="100" align="center">
+    <el-table-column label="状态" width="100" align="center">
       <template slot-scope="scope">
         <el-tag :type="scope.row.status | statusFilter"> {{ scope.row.status }}</el-tag>
       </template>
@@ -45,7 +45,9 @@ export default {
     }
   },
   created() {
-    this.fetchData()
+    this.fetchData();
+    
+    
   },
   methods: {
     fetchData() {
@@ -55,4 +57,5 @@ export default {
     }
   }
 }
+
 </script>

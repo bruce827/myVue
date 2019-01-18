@@ -13,7 +13,7 @@ for (let i = 0; i < count; i++) {
     timestamp: +Mock.Random.date('T'),
     author: '@first',
     reviewer: '@first',
-    title: '@title(5, 10)',
+    title: '@ctitle(10, 20)',
     content_short: '我是测试数据',
     content: baseContent,
     forecast: '@float(0, 100, 2, 2)',
@@ -30,11 +30,13 @@ for (let i = 0; i < count; i++) {
 
 export default {
   getList: config => {
+    // debugger
     const { importance, type, title, page = 1, limit = 20, sort } = param2Obj(config.url)
 
     let mockList = List.filter(item => {
       if (importance && item.importance !== +importance) return false
       if (type && item.type !== type) return false
+      // 筛选符合条件的名称
       if (title && item.title.indexOf(title) < 0) return false
       return true
     })

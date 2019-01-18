@@ -5,7 +5,8 @@ import Cookies from 'js-cookie'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import 'element-ui/lib/theme-chalk/index.css'//2.x版本
+// import 'element-ui/lib/theme-default/index.css'//1.x版本
 
 import '@/styles/index.scss' // global css
 

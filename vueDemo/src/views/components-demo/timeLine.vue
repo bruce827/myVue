@@ -11,7 +11,11 @@
           class="cd-timeline-block"
         >
           <div class="cd-timeline-img">
-            <div class="kameleon-icon with-round-bg">
+            <div
+              class="cd-num "
+              :class=cardStus[index]
+            >
+              {{index+1}}
             </div>
           </div>
 
@@ -43,15 +47,29 @@
 
       </section>
     </div>
+    <!-- 返回顶部按钮 -->
+    <el-tooltip
+      placement="top"
+      content="返回顶部"
+    >
+      <back-to-top
+        :custom-style="myBackToTopStyle"
+        :visibility-height="300"
+        :back-position="50"
+        transition-name="fade"
+      />
+    </el-tooltip>
   </div>
 </template>
 
 <script>
+import BackToTop from "./BackToTopCompotent";
 export default {
   name: "TimeLine",
-  components: {},
-  created() {
+  components: {
+    BackToTop
   },
+  created() {},
   data() {
     return {
       cardColor: {
@@ -64,6 +82,15 @@ export default {
         // 流程结束
         end: "success"
       },
+      myBackToTopStyle: {
+        right: "50px",
+        bottom: "50px",
+        width: "40px",
+        height: "40px",
+        "border-radius": "4px",
+        "line-height": "45px", // 请保持与高度一致以垂直居中 Please keep consistent with height to center vertically
+        background: "#e7eaf1" // 按钮的背景颜色 The background color of the button
+      },
       timeLineData: [
         {
           nodeId: "监测科主任审批",
@@ -71,7 +98,7 @@ export default {
           approveHandle: "同意",
           option:
             "这里分别以不设置margin，默认原始的距离；设置margin:10px auto,设置行距上下距离为10px；设置margin:30px auto，设置行距上下距离为30px.",
-          dealTime: '2018-08-08'
+          dealTime: "2018-08-08"
         },
         {
           nodeId: "监测科主任审批",
@@ -79,8 +106,32 @@ export default {
           approveHandle: "同意",
           option:
             "这里分别以不设置margin，默认原始的距离；设置margin:10px auto,设置行距上下距离为10px；设置margin:30px auto，设置行距上下距离为30px.",
-          dealTime: '2019-09-09'
+          dealTime: "2019-09-09"
         },
+        {
+          nodeId: "监测科主任审批",
+          approvePerson: "邵世龙",
+          approveHandle: "同意",
+          option:
+            "这里分别以不设置margin，默认原始的距离；设置margin:10px auto,设置行距上下距离为10px；设置margin:30px auto，设置行距上下距离为30px.",
+          dealTime: "2019-09-09"
+        },
+        {
+          nodeId: "监测科主任审批",
+          approvePerson: "邵世龙",
+          approveHandle: "同意",
+          option:
+            "这里分别以不设置margin，默认原始的距离；设置margin:10px auto,设置行距上下距离为10px；设置margin:30px auto，设置行距上下距离为30px.",
+          dealTime: "2019-09-09"
+        },
+        {
+          nodeId: "监测科主任审批",
+          approvePerson: "邵世龙",
+          approveHandle: "同意",
+          option:
+            "这里分别以不设置margin，默认原始的距离；设置margin:10px auto,设置行距上下距离为10px；设置margin:30px auto，设置行距上下距离为30px.",
+          dealTime: "2019-09-09"
+        }
       ]
     };
   },
@@ -91,21 +142,20 @@ export default {
       if (this.timeLineData.length == 1) {
         _d.push(this.cardColor.end);
       } else {
-        this.timeLineData.map((v,i)=>{
-        // 具体的值不重要，只关心节点的位置
-        if(i == 0){
-          // 第一个节点表示开始
-          _d.push(this.cardColor.start);
-        };
-        // 其余节点表示流程正在进行中，并不能判断最后一位是否为结束节点
+        this.timeLineData.map((v, i) => {
+          // 具体的值不重要，只关心节点的位置
+          if (i == 0) {
+            // 第一个节点表示开始
+            _d.push(this.cardColor.start);
+          }
+          // 其余节点表示流程正在进行中，并不能判断最后一位是否为结束节点
           _d.push(this.cardColor.normal);
-        })
+        });
       }
       return _d;
     }
   },
-  methods: {
-  },
+  methods: {}
 };
 </script>
 
@@ -114,6 +164,8 @@ export default {
 .components-container {
   display: flex;
   justify-content: center;
+  margin: 30px 50px;
+  position: relative;
 }
 
 el-card p {
@@ -121,7 +173,7 @@ el-card p {
 }
 
 article {
-  margin-top: 8px;
+  /* margin-top: 8px; */
 }
 
 #cd-timeline {
@@ -161,6 +213,28 @@ article {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.cd-timeline-img .cd-num {
+  /* background: blue; */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+  font-size: 24px;
+  opacity: 0.7 !important;
+}
+.cd-timeline-img .warning {
+  background: rgb(223, 184, 28);
+}
+.cd-timeline-img .danger {
+  background: rgba(232, 86, 86);
+}
+.cd-timeline-img .primary {
+  background: rgb(32, 158, 145);
 }
 
 @media only screen and (min-width: 1170px) {
@@ -245,15 +319,15 @@ article {
   border-right: 7px solid white;
 }
 
-.cd-timeline-content.warning {
+.warning {
   background: rgba(223, 184, 28, 0.2);
 }
 
-.cd-timeline-content.danger {
+.danger {
   background: rgba(232, 86, 86, 0.2);
 }
 
-.cd-timeline-content.primary {
+.primary {
   background: rgba(32, 158, 145, 0.2);
 }
 
@@ -386,6 +460,10 @@ article {
   100% {
     transform: translateX(0);
   }
+}
+/* 返回顶部按钮样式 */
+.placeholder-container div {
+  margin: 10px;
 }
 </style>
 

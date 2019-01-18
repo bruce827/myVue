@@ -9,12 +9,13 @@ for (let i = 0; i < count; i++) {
     order_no: '@guid()',
     timestamp: +Mock.Random.date('T'),
     creatDate: now,
-    username: '@name()',
+    username: '@cname()',//中文人名
     price: '@float(1000, 15000, 0, 2)',
     'status|1': ['可用', '已删除']
   }))
 }
 
+// console.log(Mock.Random.cname());
 export default {
   getList: () => {
     return {

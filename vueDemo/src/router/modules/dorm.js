@@ -25,9 +25,9 @@ const dormRouter = {
     },
     {
       path: 'charge',
-      component: () => import('@/views/dorm/home'),
-      name: '员工收费',
-      meta: { title: '员工收费', noCache: true }
+      component: () => import('@/views/dorm/equipment'),
+      name: '生命周期首页',
+      meta: { title: '生命周期首页', noCache: true }
     }
   ]
 }
