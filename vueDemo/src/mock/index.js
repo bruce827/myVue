@@ -3,6 +3,8 @@ import loginAPI from './login'
 import articleAPI from './article'
 import remoteSearchAPI from './remoteSearch'
 import transactionAPI from './transaction'
+// 格力项目
+import dormAPI from './dorm'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300
@@ -14,9 +16,9 @@ Mock.XHR.prototype.send = function() {
   this.proxy_send(...arguments)
 }
 
-// Mock.setup({
-//   timeout: '350-600'
-// })
+Mock.setup({
+  timeout: '350-600'
+})
 
 // 登录相关
 Mock.mock(/\/login\/login/, 'post', loginAPI.loginByUsername)
@@ -35,5 +37,12 @@ Mock.mock(/\/search\/user/, 'get', remoteSearchAPI.searchUser)
 
 // 账单相关
 Mock.mock(/\/transaction\/list/, 'get', transactionAPI.getList)
+
+// 格力项目
+Mock.mock(/\/dorm\/getMsgCount/,'get',dormAPI.getMsgCount)
+Mock.mock(/\/dorm\/getrunningTask/,'get',dormAPI.getrunningTask)
+Mock.mock(/\/dorm\/historyTasks/,'get',dormAPI.historyTasks)
+Mock.mock(/\/dorm\/systemMsg/,'get',dormAPI.systemMsg)
+
 
 export default Mock

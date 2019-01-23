@@ -75,7 +75,7 @@
                 type="primary"
                 icon="el-icon-download"
                 @click="handleDownload">{{ $t('table.export') }}</el-button>
-            <!-- 动态列 -->
+            <!-- 动态列,动态列表需要绑定key -->
             <el-checkbox
                 v-model="showReviewer"
                 class="filter-item"
@@ -608,6 +608,7 @@
                 }));
             },
             getDy() {
+
                 let dyHeight = document.body.clientHeight;
                 // 浏览器视窗高度-上方的组件，这里的930是估计值
                 if (dyHeight > 930) {
@@ -629,5 +630,7 @@
     .blue {
         fill: royalblue;
     }
-
+    .filter-item {
+        margin-bottom: 0
+    }
 </style>

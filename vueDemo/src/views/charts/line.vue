@@ -1,5 +1,8 @@
 <template>
   <div class="chart-container">
+    <elTag style="margin:6px;">
+      在safari浏览器上会有轻微的交互卡顿现象,目前没有找到原因
+    </elTag>
     <chart height="100%" width="100%"/>
   </div>
 </template>

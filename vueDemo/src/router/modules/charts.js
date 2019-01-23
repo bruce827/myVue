@@ -47,6 +47,15 @@ const chartsRouter = {
         title: '地图（百度）', 
         noCache: true 
       } 
+    },
+    {
+      path: 'vCharts',
+      component: () => import('@/views/charts/vCharts'),
+      name: 'v-charts集成',
+      meta: { 
+        title: 'v-charts集成', 
+        noCache: true 
+      } 
     }
 
   ]

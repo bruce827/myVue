@@ -1,342 +1,290 @@
 <template>
-  <div class="dashboard-editor-container">
-    <!-- 待办工作 -->
-    <el-container>
-      <el-aside
-        width="260px"
-        class="icon-area el-aside dbgz"
-        @click.native="jumpTarget('/runningTasks')"
-      >
-        <div class="title">
-          待办工作
-        </div>
-        <div class="content-line"></div>
-        <div class="bottom">
-          <div class="left icon-dbgz"></div>
-          <div class="right"><span>{{msg.runningMsg.totalRecords}}</span></div>
-        </div>
-      </el-aside>
-      <el-main>
-        <ul class="li-container-xj">
-          <!-- 如果超过容器的高度则不显示 -->
-          <li
-            v-for="(context,index) in msg.runningMsg.list"
-            @click="jumpTarget(context.currentTaskUrl,{taskId:context.currentTaskId,nodeCode:context.nodeCode,billCode:context.billCode})"
-            ref="historyMsg"
-            :style="{ display: index >= testNum ? 'none': ''}"
-          >
-            <div
-              :title=context.text
-              class="content-xj"
-            >{{context.instanceName}}</div>
-            <div class="datetime">{{context.createTime}}</div>
-          </li>
-        </ul>
-      </el-main>
-    </el-container>
-    <!-- 待办工作结束 -->
-    <!-- 已办工作 -->
-    <el-container>
-      <el-aside
-        width="260px"
-        class="icon-area ybgz"
-        ref="aside"
-        @click.native="jumpTarget('/historyTasks')"
-      >
-        <div class="title">
-          已办工作
-        </div>
-        <div class="content-line"></div>
-        <div class="bottom">
-          <div class="left icon-ybgz"></div>
-          <div class="right"><span>{{msg.historyMsg.totalRecords}}</span></div>
-        </div>
-      </el-aside>
-      <el-main>
-        <ul class="li-container-xj">
-          <li
-            v-for="(context,index) in msg.historyMsg.list"
-            @click="jumpTarget(context.currentTaskUrl,{historyTasks:true,billCode:context.billCode})"
-            :style="{ display: index >= testNum ? 'none': ''}"
-          >
-            <div
-              :title=context.text
-              class="content-xj"
-            >{{context.instanceName}}</div>
-            <div class="datetime">{{context.createTime}}</div>
-          </li>
-        </ul>
-      </el-main>
-    </el-container>
-    <!-- 已办工作结束 -->
-    <!-- 系统消息 -->
-    <el-container>
-      <el-aside
-        width="260px"
-        class="icon-area xtxx"
-        @click.native="jumpTarget('/systemmsg')"
-      >
-        <div class="title">
-          系统消息
-        </div>
-        <div class="content-line"></div>
-        <div class="bottom">
-          <div class="left icon-xtxx"></div>
-          <div class="right"><span>{{msg.systemMsg.totalRecords}}</span></div>
-        </div>
-      </el-aside>
-      <el-main>
-        <ul class="li-container-xj">
-          <li
-            v-for="context in msg.systemMsg.list"
-            @click="jumpTarget('/systemmsg')"
-            :style="{ display: index >= testNum ? 'none': ''}"
-          >
-            <div
-              :title=context.msgContent
-              class="content-xj"
-            >{{context.msgContent}}</div>
-            <div class="datetime">{{context.commitDate}}</div>
-          </li>
-        </ul>
-      </el-main>
-    </el-container>
-    <!-- 系统消息结束 -->
-  </div>
+    <div class="dashboard-editor-container">
+        <!-- 待办工作 -->
+        <el-container>
+            <el-aside
+                width="260px"
+                class="icon-area el-aside dbgz"
+                @click.native="jumpTarget('/runningTasks')">
+                <div class="title">
+                    待办工作
+                </div>
+                <div class="content-line"></div>
+                <div class="bottom">
+                    <div class="left icon-dbgz"></div>
+                    <div class="right">
+                        <!-- <span>{{msg.runningMsg.totalRecords}}</span> -->
+                        <span>{{count.needJob}}</span>
+                    </div>
+                </div>
+            </el-aside>
+
+            <el-main>
+                <ul class="li-container-xj">
+                    <!-- 如果超过容器的高度则不显示 -->
+                    <li
+                        v-for="(context,index) in msg.runningMsg.list"
+                        @click="jumpTarget(context.currentTaskUrl,{taskId:context.currentTaskId,nodeCode:context.nodeCode,billCode:context.billCode})"
+                        ref="historyMsg"
+                        :style="{ display: index > testNum ? 'none': ''}">
+                        <div :title=context.instanceName class="content-xj">{{context.instanceName}}</div>
+                        <div class="datetime">{{context.createTime}}</div>
+                    </li>
+                </ul>
+            </el-main>
+        </el-container>
+        <!-- 待办工作结束 -->
+        <!-- 已办工作 -->
+        <el-container>
+            <el-aside
+                width="260px"
+                class="icon-area ybgz"
+                ref="aside"
+                @click.native="jumpTarget('/historyTasks')">
+                <div class="title">
+                    已办工作
+                </div>
+                <div class="content-line"></div>
+                <div class="bottom">
+                    <div class="left icon-ybgz"></div>
+                    <div class="right">
+                        <!-- <span>{{msg.historyMsg.totalRecords}}</span> -->
+                        <span>{{count.doneJob}}</span>
+                    </div>
+                </div>
+            </el-aside>
+            <el-main>
+                <ul class="li-container-xj">
+                    <li
+                        v-for="(context,index) in msg.historyMsg.list"
+                        @click="jumpTarget(context.currentTaskUrl,{historyTasks:true,billCode:context.billCode})"
+                        :style="{ display: index > testNum ? 'none': ''}">
+                        <div :title=context.instanceName class="content-xj">{{context.instanceName}}</div>
+                        <div class="datetime">{{context.createTime}}</div>
+                    </li>
+                </ul>
+            </el-main>
+        </el-container>
+        <!-- 已办工作结束 -->
+        <!-- 系统消息 -->
+        <el-container>
+            <el-aside
+                width="260px"
+                class="icon-area xtxx"
+                @click.native="jumpTarget('/systemmsg')">
+                <div class="title">
+                    系统消息
+                </div>
+                <div class="content-line"></div>
+                <div class="bottom">
+                    <div class="left icon-xtxx"></div>
+                    <div class="right">
+                        <!-- <span>{{msg.systemMsg.totalRecords}}</span> -->
+                        <span>{{count.systemMsg}}</span>
+                    </div>
+                </div>
+            </el-aside>
+            <el-main>
+                <ul class="li-container-xj">
+                    <li
+                        v-for="(context,index) in msg.systemMsg.list"
+                        @click="jumpTarget('/systemmsg')"
+                        :style="{ display: index > testNum ? 'none': ''}">
+                        <div :title=context.instanceName class="content-xj">{{context.instanceName}}</div>
+                        <div class="datetime">{{context.createTime}}</div>
+                    </li>
+                </ul>
+            </el-main>
+        </el-container>
+        <!-- 系统消息结束 -->
+    </div>
 </template>
 
 <script>
-// 页面单独引用element-ui 2.x样式
-import elContainer from "../basic/element-ui@2.4.6/packages/container";
-import elAside from "../basic/element-ui@2.4.6/packages/aside";
-import elMain from "../basic/element-ui@2.4.6/packages/main";
+    // 页面单独引用element-ui 2.x样式 import elContainer
+    // from"../basic/element-ui@2.4.6/packages/container"; import elAside
+    // from"../basic/element-ui@2.4.6/packages/aside"; import elMain from
+    // "../basic/element-ui@2.4.6/packages/main"; mockAPI
+    import {
+      getMsgCountNum, 
+      getrunningTaskList,
+      historyTasksList,
+      systemMsgList
+      } from "@/api/dorm";
+    export default {
+        components : {
+            // elContainer, elAside, elMain
+        },
+        data() {
+            return {
+                screenHeight: document.documentElement.clientHeight, //屏幕高度，宽度不关心
+                // 能显示得下的条数，正常情况下显示5条
+                testNum: 5,
+                count: {
+                    needJob: "",
+                    doneJob: "",
+                    systemMsg: ""
+                },
+                msg: {
+                    historyMsg: {},
+                    runningMsg: {},
+                    systemMsg: {}
+                },
+                getMsgCountUrl: this.$store.state.url + "webauth/home/getMsgCount", //查询首页显示项的条数
 
-export default {
-  components: {
-    elContainer,
-    elAside,
-    elMain
-  },
-  data() {
-    return {
-      screenHeight: document.documentElement.clientHeight, //屏幕高度，宽度不关心
-      // 能显示得下的条数，正常情况下显示5条
-      testNum: 5,
-      count: {
-        needJob: "",
-        doneJob: "",
-        systemMsg: ""
-      },
-      msg: {
-        historyMsg: {},
-        runningMsg: {},
-        systemMsg: {}
-      },
-      getMsgCountUrl: this.$store.state.url + "webauth/home/getMsgCount", //查询首页显示项的条数
+                contentStyleObj: {
+                    height: "",
+                    asideWidth: "260px"
+                }
 
-      contentStyleObj: {
-        height: "",
-        asideWidth: "260px"
-      }
-
-      // 首页数据
-      // dashboardDataObj : testData,
-    };
-  },
-  watch: {
-    screenHeight: function() {
-      //监听屏幕高度变化
-      // var oIframe = document.getElementById(divId);
-      this.getHeight('runningMsg');
-    }
-  },
-  methods: {
-    getHeight(name) {
-      console.log("计算尺寸");
-
-      // 页面渲染后计算每个el-main 能存放多少li,等于父级窗口高度-padding*2
-      let totalHeightNum = document.querySelector(".li-container-xj")
-        .offsetHeight;
-      let liNum = Math.floor(totalHeightNum / 24);
-      //  将多余的li删除
-      this.testNum = liNum;
-
-      // Object.keys(this.msg).forEach(key => {
-      //   // 不关心位置，只关心content的数量
-      //   console.log(key);
-      //   console.log(this.msg[key])
-      //   // if(key){
-
-      // let _targetLen = this.msg[name].list.length;
-      // let _targetLen = this.msg.runningMsg.list.length;
-      // if (_targetLen > liNum) {
-      //  将后面的li删除
-
-      // let _lis = this.$refs[name];
-      // let _num = liNum;
-      // while(_num < _targetLen){
-      //   _lis[_num].style.display = 'none';
-      //   _num++
-      // }
-      // }
-    },
-    // 页面跳转操作
-    jumpTarget(url, query) {
-      this.$router.push({ path: url, query: query });
-    },
-    getMsgCount() {
-      this.$axios.post(this.getMsgCountUrl).then(res => {
-        if (0 == res.data.code) {
-          //查询成功
-          this.count.needJob = res.data.data.needJob;
-          this.count.doneJob = res.data.data.doneJob;
-          this.count.systemMsg = res.data.data.systemMsg;
-        } else {
-          this.$message({
-            showClose: true,
-            message: res.data.msg,
-            type: "error"
-          });
-        }
-      });
-    },
-    // 代办
-    runningTasks() {
-      var params = new URLSearchParams();
-      params.append("instanceName", "");
-      params.append("billCode", "");
-      params.append("billType", "");
-      params.append("creator", "");
-      params.append("createTimeStart", "");
-      params.append("createTimeStop", "");
-      this.$axios
-        .post(
-          this.$store.state.url +
-            "basic/activiti/queryRunningTaskList?pageSize=15&pageNum=1",
-          params
-        )
-        .then(res => {
-          if (0 == res.data.code) {
-            //查询成功
-            this.msg.runningMsg = res.data.data;
-            if (this.msg.runningMsg.list) {
-              // console.log(this.msg.runningMsg.list);
-              // 调整li的数量,由于三个区域的高度是相同的，所以计算任意一个数值就可以
-              this.getHeight("runningMsg");
+                // 首页数据 dashboardDataObj : testData,
+            };
+        },
+        watch : {
+            screenHeight: function () {
+                //监听屏幕高度变化 var oIframe = document.getElementById(divId);
+                this.getHeight("runningMsg");
             }
-            this.$nextTick(() => {});
-          } else {
-            this.$message({
-              showClose: true,
-              message: res.data.msg,
-              type: "error"
-            });
-          }
-        });
-    },
-    // 已办
-    historyTasks() {
-      var params = new URLSearchParams();
-      params.append("instanceName", "");
-      params.append("billCode", "");
-      params.append("billType", "");
-      params.append("createTimeStart", "");
-      params.append("createTimeStop", "");
-      this.$axios
-        .post(
-          this.$store.state.url +
-            "basic/activiti/queryHistoryTaskList?pageSize=15&pageNum=1",
-          params
-        )
-        .then(res => {
-          if (0 == res.data.code) {
-            //查询成功
-            this.msg.historyMsg = res.data.data;
-          } else {
-            this.$message({
-              showClose: true,
-              message: res.data.msg,
-              type: "error"
-            });
-          }
-        });
-    },
-    // 系统消息
-    systemMsg() {
-      var params = new URLSearchParams();
-      params.append("state", "1");
-      this.$axios
-        .post(
-          this.$store.state.url +
-            "webauth/home/listSystemMsg?pageSize=15&pageNum=1",
-          params
-        )
-        .then(res => {
-          if (0 == res.data.code) {
-            //查询成功
-            this.msg.systemMsg = res.data.data;
-          } else {
-            this.$message({
-              showClose: true,
-              message: res.data.msg,
-              type: "error"
-            });
-          }
-        });
-    }
-  },
-  mounted: function() {
-    // 页面渲染后计算每个el-main 能存放多少li,等于父级窗口高度-padding*2
-    // let totalHeightNum =document.querySelector(".li-container-xj").offsetHeight;
-    // let liNum = Math.floor(totalHeightNum / 24);
-    // console.log(liNum);
+        },
+        methods : {
+            getHeight(name) {
+                console.log("计算尺寸");
 
-    // //  将多余的li删除
-    // console.log(this.msg);
+                // 页面渲染后计算每个el-main 能存放多少li,等于父级窗口高度-padding*2
+                let totalHeightNum = document
+                    .querySelector(".li-container-xj")
+                    .offsetHeight;
+                let liNum = Math.floor(totalHeightNum / 24);
+                //  将多余的li删除
+                this.testNum = liNum;
 
-    // // Object.keys(this.msg).forEach(key => {
-    // //   // 不关心位置，只关心content的数量
-    // //   console.log(key);
-    // //   console.log(this.msg[key])
-    // //   // if(key){
+                // Object.keys(this.msg).forEach(key => {   // 不关心位置，只关心content的数量
+                // console.log(key);   console.log(this.msg[key])   // if(key){ let _targetLen =
+                // this.msg[name].list.length; let _targetLen = this.msg.runningMsg.list.length;
+                // if (_targetLen > liNum) {  将后面的li删除 let _lis = this.$refs[name]; let _num =
+                // liNum; while(_num < _targetLen){ _lis[_num].style.display = 'none'; _num++ }
+                // }
+            },
+            // 页面跳转操作
+            jumpTarget(url, query) {
+                this
+                    .$router
+                    .push({path: url, query: query});
+            },
+            getMsgCount() {
+                // 后台请求 this.$axios.post(this.getMsgCountUrl).then(res => {   if (0 ==
+                // res.data.code) {     //查询成功     this.count.needJob = res.data.data.needJob;
+                // this.count.doneJob = res.data.data.doneJob;     this.count.systemMsg =
+                // res.data.data.systemMsg;   } else {     this.$message({       showClose:
+                // true,       message: res.data.msg,       type: "error"     });   } }); mock数据
+                getMsgCountNum().then(response => {
+                    this.count.needJob = response.data.needJob;
+                    this.count.doneJob = response.data.doneJob;
+                    this.count.systemMsg = response.data.systemMsg;
+                });
+            },
+            // 代办
+            runningTasks() {
+                var params = new URLSearchParams();
+                params.append("instanceName", "");
+                params.append("billCode", "");
+                params.append("billType", "");
+                params.append("creator", "");
+                params.append("createTimeStart", "");
+                params.append("createTimeStop", "");
+                // this
+                //     .$axios
+                //     .post(this.$store.state.url + "basic/activiti/queryRunningTaskList?pageSize=15&pageNum=1", params)
+                //     .then(res => {
+                //         if (0 == res.data.code) { //查询成功
+                //             this.msg.runningMsg = res.data.data;
+                //             if (this.msg.runningMsg.list) { 
+                //               //console.log(this.msg.runningMsg.list);
+                //                 // 调整li的数量,
+                //                 // 由于三个区域的高度是相同的，所以计算任意一个数值就可以
+                //                 this.getHeight("runningMsg");
+                //             }
+                //             this.$nextTick(() => {});
+                //         } else {
+                //             this.$message({showClose: true, message: res.data.msg, type: "error"});
+                //         }
+                //     });
+                    // mockAPI
+                    getrunningTaskList().then(response => {
+                      this.msg.runningMsg = response.data;
+                      this.getHeight("runningMsg");
+                      this.$nextTick(() => {});
+                    })
+            },
+            // 已办
+            historyTasks() {
+                var params = new URLSearchParams();
+                params.append("instanceName", "");
+                params.append("billCode", "");
+                params.append("billType", "");
+                params.append("createTimeStart", "");
+                params.append("createTimeStop", "");
+                // this     .$axios     .post(this.$store.state.url +
+                // "basic/activiti/queryHistoryTaskList?pageSize=15&pageNum=1", params)
+                // .then(res => {         if (0 == res.data.code) {             //查询成功
+                // this.msg.historyMsg = res.data.data;         } else {
+                // this.$message({showClose: true, message: res.data.msg, type: "error"});   }
+                //   });
+                historyTasksList().then(response => {
+                  this.msg.historyMsg = response.data; 
+                })
+            },
+            // 系统消息
+            systemMsg() {
+                var params = new URLSearchParams();
+                params.append("state", "1");
+                // this     .$axios     .post(this.$store.state.url +
+                // "webauth/home/listSystemMsg?pageSize=15&pageNum=1", params)     .then(res =>
+                // {         if (0 == res.data.code) {             //查询成功 this.msg.systemMsg =
+                // res.data.data;         } else { this.$message({showClose: true, message:
+                // res.data.msg, type: "error"});   }     });
 
-    // let _targetLen = this.msg.runningMsg.list.length;
-    // if (_targetLen > liNum) {
-    //   //  将后面的li删除
-    //   let _lis = this.$refs[];
-    //   let _num = liNum;
-    //   while(_num < _targetLen){
-    //     _lis[_num].style.display = 'none';
-    //     _num++
-    //   }
-    // }
-    //   // }
-
-    // });
-    var _this = this;
-    window.onresize = function() {
-      // 定义窗口大小变更通知事件
-      _this.screenHeight = document.documentElement.clientHeight; //窗口高度
+                // mockAPI
+                systemMsgList().then(response => {
+                  this.msg.systemMsg = response.data; 
+                })
+            }
+        },
+        mounted : function () {
+            // 页面渲染后计算每个el-main 能存放多少li,等于父级窗口高度-padding*2 let totalHeightNum
+            // =document.querySelector(".li-container-xj").offsetHeight; let liNum =
+            // Math.floor(totalHeightNum / 24); console.log(liNum); //  将多余的li删除
+            // console.log(this.msg); // Object.keys(this.msg).forEach(key => { //   //
+            // 不关心位置，只关心content的数量 //   console.log(key); //   console.log(this.msg[key]) //
+            //   // if(key){ let _targetLen = this.msg.runningMsg.list.length; if
+            // (_targetLen > liNum) {   //  将后面的li删除   let _lis = this.$refs[];   let _num =
+            // liNum;   while(_num < _targetLen){     _lis[_num].style.display = 'none';
+            // _num++   } }   // } });
+            var _this = this;
+            window.onresize = function () {
+                // 定义窗口大小变更通知事件
+                _this.screenHeight = document.documentElement.clientHeight; //窗口高度
+            };
+        },
+        updated() {
+            // this.getHeight("runningMsg");
+        },
+        created() {
+            this.getMsgCount();
+            this.runningTasks();
+            this.historyTasks();
+            this.systemMsg();
+            // window.addEventListener("resize", this.getHeight); this.getHeight();
+        },
+        destroyed() {
+            // window.removeEventListener("resize", this.getHeight);
+        }
     };
-  },
-  updated() {
-    // this.getHeight("runningMsg");
-  },
-  created() {
-    // this.getMsgCount();
-    this.runningTasks();
-    this.historyTasks();
-    this.systemMsg();
-    // window.addEventListener("resize", this.getHeight);
-    // this.getHeight();
-  },
-  destroyed() {
-    // window.removeEventListener("resize", this.getHeight);
-  }
-};
 </script>
-
+<!--  
+  
 <style scoped src="../basic/element-ui@2.4.6/lib/theme-chalk/index.css"></style>
+  -->
 <style rel="stylesheet/scss" scoped>
 /* @import './element-ui/lib/theme-chalk/index.css'; */
 .icon-dbgz {
