@@ -10,7 +10,7 @@
     <!-- 房间使用情况 -->
     <el-row :gutter="32">
       <!-- 社区选择 -->
-       <el-col :md="8">
+      <el-col :md="8">
         <rate-card/>
       </el-col>
       <!-- 使用情况图表 -->
@@ -30,18 +30,18 @@ import RateCard from './components/RateCard'
 import FunnelChart from './components/FunnelChart'
 
 // 样例数据
-const lineData = function(){
-  let _d = [];
-  for(let i=1;i<13;i++){
-    _d.push(Math.random()*1000)
+const lineData = function() {
+  const _d = []
+  for (let i = 1; i < 13; i++) {
+    _d.push(Math.random() * 1000)
   }
   return _d
-};
+}
 // 折线图数据
 const lineChartDataObj = {
 
   newVisitis: {
-    expectedData: [122,233,111,33,1122,122,111,222,111,222,111],
+    expectedData: [122, 233, 111, 33, 1122, 122, 111, 222, 111, 222, 111],
     actualData: [120, 82, 91, 154, 162, 140, 145]
   },
   messages: {
@@ -81,7 +81,6 @@ export default {
   }
 }
 </script>
-
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 

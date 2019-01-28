@@ -10,10 +10,10 @@
     </el-row>
 
     <el-row :gutter="32">
-    <!-- 地图 -->
+      <!-- 地图 -->
       <el-col :md="16">
         <div class="chart-wrapper" >
-        <User-map/>  
+          <User-map/>
         </div>
       </el-col>
       <!-- 平台数据分析 -->
@@ -50,7 +50,6 @@
         <box-card/>
       </el-col>
     </el-row> -->
-    
 
     <el-row :gutter="32">
       <el-col :md="16" :lg="16" :xl="{span: 12}" >
@@ -76,18 +75,18 @@ import BoxCard from './components/BoxCard'
 import UserMap from './components/UserMap'
 import RateCard from './components/RateCard'
 
-const line_data = function(){
-  let d = [];
-  for(let i=1;i<13;i++){
-    d.push(Math.random()*1000)
+const line_data = function() {
+  const d = []
+  for (let i = 1; i < 13; i++) {
+    d.push(Math.random() * 1000)
   }
   return d
-};
+}
 // 折线图数据
 const lineChartData = {
 
   newVisitis: {
-    expectedData: [122,233,111,33,1122,122,111,222,111,222,111],
+    expectedData: [122, 233, 111, 33, 1122, 122, 111, 222, 111, 222, 111],
     actualData: [120, 82, 91, 154, 162, 140, 145]
   },
   messages: {
@@ -118,7 +117,7 @@ export default {
     TodoList,
     BoxCard,
     UserMap,
-    RateCard,
+    RateCard
   },
   data() {
     return {

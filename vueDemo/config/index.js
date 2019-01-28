@@ -16,9 +16,10 @@ module.exports = {
     // can be overwritten by process.env.HOST
     // if you want dev by ip, please set host: '0.0.0.0'
     // 开发环境配置
-    host: '0.0.0.0',
+    // host: '0.0.0.0',
+    host:'127.0.0.1',
     port: 8000, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: true, //自动打开浏览器
+    autoOpenBrowser: false, //自动打开浏览器
     errorOverlay: true,
     notifyOnErrors: false,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-

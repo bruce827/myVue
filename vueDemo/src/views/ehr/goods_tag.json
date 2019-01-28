@@ -1,0 +1,35 @@
+[
+    {
+        "code":"01",
+        "name":"日常办公",
+        "content":"平时上班大家领的东东",
+        "meta":{
+            "createPerson": "Bruce",
+            "createDate": "",
+            "modificationPerson": "",
+            "modificationDate": ""
+        }
+    },
+    {
+        "code":"02",
+        "name":"活动礼品",
+        "content":"年会活动礼品",
+        "meta":{
+            "createPerson": "Bruce",
+            "createDate": "",
+            "modificationPerson": "",
+            "modificationDate": ""
+        }
+    },
+    {
+        "code":"03",
+        "name":"消耗品",
+        "content":"打印纸、内存什么的",
+        "meta":{
+            "createPerson": "Bruce",
+            "createDate": "",
+            "modificationPerson": "",
+            "modificationDate": ""
+        }
+    }
+]

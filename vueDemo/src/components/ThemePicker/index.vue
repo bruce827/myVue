@@ -48,8 +48,8 @@ export default {
         chalkHandler()
       }
 
-      const styles = [].slice.call(document.querySelectorAll('style'))
-        .filter(style => {
+      const styles = [].slice.call(document.querySelectorAll('style')).
+        filter(style => {
           const text = style.innerText
           return new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text)
         })

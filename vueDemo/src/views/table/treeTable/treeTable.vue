@@ -57,14 +57,14 @@ export default {
             {
               id: 2,
               event: '',
-              timeLine: "小关1",
+              timeLine: '小关1',
               comment: '试题1'
             },
             {
               id: 3,
               event: '',
               timeLine: '小关2',
-              comment: '试题2',
+              comment: '试题2'
               // children: [
               //   {
               //     id: 4,

@@ -36,7 +36,7 @@
     <el-col :xs="12" :sm="12" :lg="6" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-icon-wrapper icon-shopping">
-          <svg-icon icon-class="article" class-name="card-panel-icon"  />
+          <svg-icon icon-class="article" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">消息推送</div>
@@ -49,7 +49,7 @@
 
 <script>
 // 页面级引用
-import CountTo from "vue-count-to";
+import CountTo from 'vue-count-to'
 
 export default {
   components: {
@@ -57,10 +57,10 @@ export default {
   },
   methods: {
     handleSetLineChartData(type) {
-      this.$emit("handleSetLineChartData", type);
+      this.$emit('handleSetLineChartData', type)
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

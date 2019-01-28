@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import { scrollTo } from "@/utils/scrollTo";
+import { scrollTo } from '@/utils/scrollTo'
 
 export default {
-  name: "Pagination",
+  name: 'Pagination',
   props: {
     // 条目总数
     total: {
@@ -41,13 +41,13 @@ export default {
     pageSizes: {
       type: Array,
       default() {
-        return [10, 20, 30, 50];
+        return [10, 20, 30, 50]
       }
     },
     // 默认展示
     layout: {
       type: String,
-      default: "total, sizes, prev, pager, next, jumper"
+      default: 'total, sizes, prev, pager, next, jumper'
     },
     // 页码默认添加背景色
     background: {
@@ -68,40 +68,40 @@ export default {
   computed: {
     currentPage: {
       get() {
-        return this.page;
+        return this.page
       },
       set(val) {
         // 改变父组件页码
-        this.$emit("update:page", val);
+        this.$emit('update:page', val)
       }
     },
     pageSize: {
       get() {
-        return this.limit;
+        return this.limit
       },
       set(val) {
         // 改变父组件每页显示条数
-        this.$emit("update:limit", val);
+        this.$emit('update:limit', val)
       }
     }
   },
   methods: {
     handleSizeChange(val) {
       // 向上传递每页显示个数，并使页面自动返回顶部
-      this.$emit("pagination", { page: this.currentPage, limit: val });
+      this.$emit('pagination', { page: this.currentPage, limit: val })
       if (this.autoScroll) {
-        scrollTo(0, 800);
+        scrollTo(0, 800)
       }
     },
     handleCurrentChange(val) {
       // 向上传递页码，并使页面自动返回顶部
-      this.$emit("pagination", { page: val, limit: this.pageSize });
+      this.$emit('pagination', { page: val, limit: this.pageSize })
       if (this.autoScroll) {
-        scrollTo(0, 800);
+        scrollTo(0, 800)
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>

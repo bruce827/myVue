@@ -16,21 +16,21 @@ import startEduRouter from './modules/startEdu'
 import opinionRouter from './modules/opinion'
 import articleRouter from './modules/article'
 import dormRouter from './modules/dorm'
-/** 
+/**
  *=========== 路由的详细配置说明==============
  **/
 
 /**
-* //当设置 true 的时候该路由不会再侧边栏出现 如401，login等页面，或者如一些编辑页面/edit/1，默认为flase 
+* //当设置 true 的时候该路由不会再侧边栏出现 如401，login等页面，或者如一些编辑页面/edit/1，默认为flase
 * hidden: true
 * //当你一个路由下面的 children 声明的路由大于1个时，自动会变成嵌套的模式--如组件页面
 * //只有一个时，会将那个子路由当做根路由显示在侧边栏--如引导页面
-* //若你想不管路由下面的 children 声明的个数都显示你的根路由,你可以设置 alwaysShow: true，这样它就会忽略之前定义的规则，一直显示根路由    
-* alwaysShow: true               
-* //当设置 noredirect 的时候该路由在面包屑导航中不可被点击 
+* //若你想不管路由下面的 children 声明的个数都显示你的根路由,你可以设置 alwaysShow: true，这样它就会忽略之前定义的规则，一直显示根路由
+* alwaysShow: true
+* //当设置 noredirect 的时候该路由在面包屑导航中不可被点击
 * redirect: noredirect
 * //设定路由的名字，一定要填写不然使用<keep-alive>时会出现各种问题
-* name:'router-name'             
+* name:'router-name'
 * meta : {
     roles: ['admin','editor']     //设置路由的 权限，支持多个权限叠加
     title: 'title'                //在侧边栏和面包屑中的名字
@@ -80,7 +80,7 @@ export const constantRouterMap = [
     component: () => import('@/views/errorPage/401'),
     hidden: true
   },
-// 首页
+  // 首页
   {
     path: '',
     component: Layout,
@@ -136,7 +136,7 @@ export const constantRouterMap = [
 
 // 实例化时默认加载所有权限
 export default new Router({
-  /** 
+  /**
    * 默认使用hashHistory进行路由解析，可以改为browserHistory，注意发布时要在容器里添加映射
   */
   // mode: 'history', // require service support
@@ -163,7 +163,7 @@ export const asyncRouterMap = [
       // 图标
       icon: 'lock',
       // 页面需要的权限
-      roles: ['admin', 'editor'] 
+      roles: ['admin', 'editor']
     },
     // 子菜单
     children: [
@@ -188,7 +188,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 图标
+  // 图标
   {
     path: '/icon',
     component: Layout,
@@ -211,7 +211,7 @@ export const asyncRouterMap = [
   nestedRouter,
   // 表格
   tableRouter,
-// 综合实例
+  // 综合实例
   {
     path: '/example',
     component: Layout,
@@ -243,7 +243,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// tab页面
+  // tab页面
   {
     path: '/tab',
     component: Layout,
@@ -256,7 +256,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 错误页面
+  // 错误页面
   {
     path: '/error',
     component: Layout,
@@ -281,7 +281,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 错误页面2
+  // 错误页面2
   {
     path: '/error-log',
     component: Layout,
@@ -295,7 +295,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// excle导出
+  // excle导出
   {
     path: '/excel',
     component: Layout,
@@ -326,7 +326,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 压缩导出
+  // 压缩导出
   {
     path: '/zip',
     component: Layout,
@@ -342,7 +342,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 主题换肤
+  // 主题换肤
   {
     path: '/theme',
     component: Layout,
@@ -356,7 +356,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 剪切板
+  // 剪切板
   {
     path: '/clipboard',
     component: Layout,
@@ -370,7 +370,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 国际化
+  // 国际化
   {
     path: '/i18n',
     component: Layout,
@@ -383,7 +383,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-// 外部链接
+  // 外部链接
   {
     path: 'external-link',
     component: Layout,
@@ -395,7 +395,6 @@ export const asyncRouterMap = [
     ]
   },
 
-  
-// 404页面，此页面需要在最后加载
+  // 404页面，此页面需要在最后加载
   { path: '*', redirect: '/404', hidden: true }
 ]

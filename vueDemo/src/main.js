@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'//2.x版本
+import 'element-ui/lib/theme-chalk/index.css'// 2.x版本
 // import 'element-ui/lib/theme-default/index.css'//1.x版本
 
 import '@/styles/index.scss' // global css
@@ -16,7 +16,7 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import router from './router'
 import store from './store'
-/** 
+/**
  * 项目级引用，建议必须
 */
 import i18n from './lang' // Internationalization
@@ -25,15 +25,11 @@ import './errorLog' // error log
 import './permission' // permission control
 import './mock' // simulation data
 import * as filters from './filters' // global filters
-import 'babel-polyfill' //兼容ie
-require("es6-promise").polyfill();
-/** 
+import 'babel-polyfill' // 兼容ie
+require('es6-promise').polyfill()
+/**
  * 页面级拓展插件引用，当多个页面需要使用同一个插件时，建议统一引用到全局，非必须
 */
-
-
-
-
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size

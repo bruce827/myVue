@@ -95,7 +95,7 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/timeLine'),
       name: '审批流程',
       meta: { title: '审批流程' }
-    },
+    }
   ]
 }
 

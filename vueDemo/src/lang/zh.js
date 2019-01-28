@@ -61,7 +61,7 @@ export default {
     theme: '换肤',
     clipboardDemo: 'Clipboard',
     i18n: '国际化',
-    externalLink: '外链',
+    externalLink: '外链'
 
   },
   navbar: {
@@ -76,13 +76,12 @@ export default {
     title: '系统登录',
     logIn: '登录',
     username: '管理员账号',
-    username_placeholder:'用户名',
-    opsname:'维护人员账号',
+    username_placeholder: '用户名',
+    opsname: '维护人员账号',
     password: '密码',
     any: '随便填',
     thirdparty: '第三方登录',
-    thirdpartyTips: '本地不能模拟，请结合自己业务进行模拟！！！',
-    
+    thirdpartyTips: '本地不能模拟，请结合自己业务进行模拟！！！'
 
   },
   documentation: {

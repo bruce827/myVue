@@ -39,10 +39,9 @@ Mock.mock(/\/search\/user/, 'get', remoteSearchAPI.searchUser)
 Mock.mock(/\/transaction\/list/, 'get', transactionAPI.getList)
 
 // 格力项目
-Mock.mock(/\/dorm\/getMsgCount/,'get',dormAPI.getMsgCount)
-Mock.mock(/\/dorm\/getrunningTask/,'get',dormAPI.getrunningTask)
-Mock.mock(/\/dorm\/historyTasks/,'get',dormAPI.historyTasks)
-Mock.mock(/\/dorm\/systemMsg/,'get',dormAPI.systemMsg)
-
+Mock.mock(/\/dorm\/getMsgCount/, 'get', dormAPI.getMsgCount)
+Mock.mock(/\/dorm\/getrunningTask/, 'get', dormAPI.getrunningTask)
+Mock.mock(/\/dorm\/historyTasks/, 'get', dormAPI.historyTasks)
+Mock.mock(/\/dorm\/systemMsg/, 'get', dormAPI.systemMsg)
 
 export default Mock

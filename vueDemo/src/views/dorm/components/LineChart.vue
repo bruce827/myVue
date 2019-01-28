@@ -3,23 +3,23 @@
 </template>
 
 <script>
-import echarts from "echarts"
-require("echarts/theme/macarons") // echarts 马卡龙主题
-import { debounce } from "../utils"
+import echarts from 'echarts'
+require('echarts/theme/macarons') // echarts 马卡龙主题
+import { debounce } from '../utils'
 
 export default {
   props: {
     className: {
       type: String,
-      default: "chart"
+      default: 'chart'
     },
     width: {
       type: String,
-      default: "100%"
+      default: '100%'
     },
     height: {
       type: String,
-      default: "350px"
+      default: '350px'
     },
     autoResize: {
       type: Boolean,
@@ -33,48 +33,70 @@ export default {
   data() {
     return {
       chart: null
-    };
+    }
+  },
+  watch: {
+    chartData: {
+      deep: true,
+      handler(val) {
+        this.setOptions(val)
+      }
+    }
   },
   mounted() {
-    this.initChart();
+    this.initChart()
     if (this.autoResize) {
       this.__resizeHandler = debounce(() => {
         if (this.chart) {
-          this.chart.resize();
+          this.chart.resize()
         }
-      }, 100);
-      window.addEventListener("resize", this.__resizeHandler);
+      }, 100)
+      window.addEventListener('resize', this.__resizeHandler)
     }
     // 监听侧边栏的变化
-    const sidebarElm = document.getElementsByClassName("sidebar-container")[0];
-    sidebarElm.addEventListener("transitionend", this.sidebarResizeHandler);
+    const sidebarElm = document.getElementsByClassName('sidebar-container')[0]
+    sidebarElm.addEventListener('transitionend', this.sidebarResizeHandler)
+  },
+  beforeDestroy() {
+    if (!this.chart) {
+      return
+    }
+    if (this.autoResize) {
+      window.removeEventListener('resize', this.__resizeHandler)
+    }
+
+    const sidebarElm = document.getElementsByClassName('sidebar-container')[0]
+    sidebarElm.removeEventListener('transitionend', this.sidebarResizeHandler)
+
+    this.chart.dispose()
+    this.chart = null
   },
   methods: {
     sidebarResizeHandler(e) {
-      if (e.propertyName === "width") {
-        this.__resizeHandler();
+      if (e.propertyName === 'width') {
+        this.__resizeHandler()
       }
     },
     setOptions({ expectedData, actualData } = {}) {
       this.chart.setOption({
         title: {
-          text: "员工总数",
+          text: '员工总数',
           right: 0
         },
         xAxis: {
           data: [
-            "1月",
-            "2月",
-            "3月",
-            "4月",
-            "5月",
-            "6月",
-            "7月",
-            "8月",
-            "9月",
-            "10月",
-            "11月",
-            "12月"
+            '1月',
+            '2月',
+            '3月',
+            '4月',
+            '5月',
+            '6月',
+            '7月',
+            '8月',
+            '9月',
+            '10月',
+            '11月',
+            '12月'
           ],
           boundaryGap: false,
           axisTick: {
@@ -89,9 +111,9 @@ export default {
           containLabel: true
         },
         tooltip: {
-          trigger: "axis",
+          trigger: 'axis',
           axisPointer: {
-            type: "cross"
+            type: 'cross'
           },
           padding: [5, 10]
         },
@@ -101,75 +123,53 @@ export default {
           }
         },
         legend: {
-          data: ["2017", "2018"]
+          data: ['2017', '2018']
         },
         series: [
           {
-            name: "2017",
+            name: '2017',
             itemStyle: {
               normal: {
-                color: "#FF005A",
+                color: '#FF005A',
                 lineStyle: {
-                  color: "#FF005A",
+                  color: '#FF005A',
                   width: 2
                 }
               }
             },
             smooth: true,
-            type: "line",
+            type: 'line',
             data: expectedData,
             animationDuration: 2800,
-            animationEasing: "cubicInOut"
+            animationEasing: 'cubicInOut'
           },
           {
-            name: "2018",
+            name: '2018',
             smooth: true,
-            type: "line",
+            type: 'line',
             itemStyle: {
               normal: {
-                color: "#3888fa",
+                color: '#3888fa',
                 lineStyle: {
-                  color: "#3888fa",
+                  color: '#3888fa',
                   width: 2
                 },
                 areaStyle: {
-                  color: "#f3f8ff"
+                  color: '#f3f8ff'
                 }
               }
             },
             data: actualData,
             animationDuration: 2800,
-            animationEasing: "quadraticOut"
+            animationEasing: 'quadraticOut'
           }
         ]
-      });
+      })
     },
     initChart() {
-      this.chart = echarts.init(this.$el, "macarons");
-      this.setOptions(this.chartData);
+      this.chart = echarts.init(this.$el, 'macarons')
+      this.setOptions(this.chartData)
     }
-  },
-  watch: {
-    chartData: {
-      deep: true,
-      handler(val) {
-        this.setOptions(val);
-      }
-    }
-  },
-  beforeDestroy() {
-    if (!this.chart) {
-      return;
-    }
-    if (this.autoResize) {
-      window.removeEventListener("resize", this.__resizeHandler);
-    }
-
-    const sidebarElm = document.getElementsByClassName("sidebar-container")[0];
-    sidebarElm.removeEventListener("transitionend", this.sidebarResizeHandler);
-
-    this.chart.dispose();
-    this.chart = null;
-  },
-};
+  }
+}
 </script>

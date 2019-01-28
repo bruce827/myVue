@@ -63,55 +63,55 @@
 </template>
 
 <script>
-import { isvalidUsername } from "@/utils/validate";
-import LangSelect from "@/components/LangSelect";
-import SocialSign from "./socialsignin";
+import { isvalidUsername } from '@/utils/validate'
+import LangSelect from '@/components/LangSelect'
+import SocialSign from './socialsignin'
 
 export default {
-  name: "Login",
+  name: 'Login',
   components: { LangSelect, SocialSign },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
-        callback(new Error("用户名错误"));
+        callback(new Error('用户名错误'))
       } else {
-        callback();
+        callback()
       }
-    };
+    }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
-        if(value.length == 0){
-          callback(new Error("密码不能为空"));
-        }else{
-          callback(new Error("密码错误"));
+        if (value.length == 0) {
+          callback(new Error('密码不能为空'))
+        } else {
+          callback(new Error('密码错误'))
         }
       } else {
-        callback();
+        callback()
       }
-    };
+    }
     return {
       loginForm: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [
-          { required: true, trigger: "blur", validator: validateUsername }
+          { required: true, trigger: 'blur', validator: validateUsername }
         ],
         password: [
-          { required: true, trigger: "blur", validator: validatePassword }
+          { required: true, trigger: 'blur', validator: validatePassword }
         ]
       },
-      passwordType: "password",
+      passwordType: 'password',
       loading: false,
       showDialog: false,
       redirect: undefined
-    };
+    }
   },
   watch: {
     $route: {
       handler: function(route) {
-        this.redirect = route.query && route.query.redirect;
+        this.redirect = route.query && route.query.redirect
       },
       immediate: true
     }
@@ -124,32 +124,32 @@ export default {
   },
   methods: {
     showPwd() {
-      if (this.passwordType === "password") {
-        this.passwordType = "";
+      if (this.passwordType === 'password') {
+        this.passwordType = ''
       } else {
-        this.passwordType = "password";
+        this.passwordType = 'password'
       }
     },
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true;
-          this.$store
-            .dispatch("LoginByUsername", this.loginForm)
-            .then(() => {
+          this.loading = true
+          this.$store.
+            dispatch('LoginByUsername', this.loginForm).
+            then(() => {
               // 验证成功则跳转首页
-              this.loading = false;
-              this.$router.push({ path: this.redirect || "/" });
-            })
-            .catch(() => {
+              this.loading = false
+              this.$router.push({ path: this.redirect || '/' })
+            }).
+            catch(() => {
               // 验证失败则
-              this.loading = false;
-            });
+              this.loading = false
+            })
         } else {
-          console.log("error submit!!");
-          return false;
+          console.log('error submit!!')
+          return false
         }
-      });
+      })
     },
     afterQRScan() {
       // const hash = window.location.hash.slice(1)
@@ -170,7 +170,7 @@ export default {
       // }
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">

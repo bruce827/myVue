@@ -7,7 +7,7 @@
     </el-table-column>
     <el-table-column label="发布日期" width="195" align="center">
       <template slot-scope="scope">
-        {{ scope.row.creatDate}}
+        {{ scope.row.creatDate }}
       </template>
     </el-table-column>
     <el-table-column label="点击量" width="195" align="center">

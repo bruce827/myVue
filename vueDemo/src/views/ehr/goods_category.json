@@ -1,0 +1,142 @@
+{
+  "fileManager": {
+    "code": "01",
+    "name": "文件管理用品",
+    "meta": {
+      "createPerson": "Bruce",
+      "createDate": "",
+      "modificationPerson": "",
+      "modificationDate": ""
+    },
+    "subGoods": [{
+      "code": "0101",
+      "name": "文件柜",
+      "meta": {
+        "createPerson": "Bruce",
+        "createDate": "",
+        "modificationPerson": "",
+        "modificationDate": ""
+      }
+    }]
+  },
+  "desktopTool": {
+    "code": "02",
+    "name": "桌面办公文具",
+    "meta": {
+      "createPerson": "Bruce",
+      "createDate": "",
+      "modificationPerson": "",
+      "modificationDate": ""
+    },
+    "subGoods": [{
+      "code": "0201",
+      "name": "台历",
+      "meta": {
+        "createPerson": "Bruce",
+        "createDate": "",
+        "modificationPerson": "",
+        "modificationDate": ""
+      }
+    }]
+  },
+  "writeTool": {
+    "code": "03",
+    "name": "书写工具",
+    "meta": {
+      "createPerson": "Bruce",
+      "createDate": "",
+      "modificationPerson": "",
+      "modificationDate": ""
+    },
+    "subGoods": [{
+      "code": "0301",
+      "name": "圆珠笔",
+      "meta": {
+        "createPerson": "Bruce",
+        "createDate": "",
+        "modificationPerson": "",
+        "modificationDate": ""
+      }
+    }]
+  },
+  "paper": {
+    "code": "04",
+    "name": "紙製品",
+    "meta": {
+      "createPerson": "Bruce",
+      "createDate": "",
+      "modificationPerson": "",
+      "modificationDate": ""
+    },
+    "subGoods": [{
+      "code": "0401",
+      "name": "打印纸",
+      "meta": {
+        "createPerson": "Bruce",
+        "createDate": "",
+        "modificationPerson": "",
+        "modificationDate": ""
+      }
+    }]
+  },
+  "financial": {
+    "code": "05",
+    "name": "金融用品",
+    "meta": {
+      "createPerson": "Bruce",
+      "createDate": "",
+      "modificationPerson": "",
+      "modificationDate": ""
+    },
+    "subGoods": [{
+      "code": "0501",
+      "name": "点钞机",
+      "meta": {
+        "createPerson": "Bruce",
+        "createDate": "",
+        "modificationPerson": "",
+        "modificationDate": ""
+      }
+    }]
+  },
+  "live": {
+    "code": "06",
+    "name": "生活用品",
+    "meta": {
+      "createPerson": "Bruce",
+      "createDate": "",
+      "modificationPerson": "",
+      "modificationDate": ""
+    },
+    "subGoods": [{
+      "code": "0601",
+      "name": "垃圾桶",
+      "meta": {
+        "createPerson": "Bruce",
+        "createDate": "",
+        "modificationPerson": "",
+        "modificationDate": ""
+      }
+    }]
+  },
+  "orther": {
+    "code": "99",
+    "name": "其他",
+    "meta": {
+      "createPerson": "Bruce",
+      "createDate": "",
+      "modificationPerson": "",
+      "modificationDate": ""
+    },
+    "subGoods": [{
+      "code": "9901",
+      "name": "咖啡",
+      "meta": {
+        "createPerson": "Bruce",
+        "createDate": "",
+        "modificationPerson": "",
+        "modificationDate": ""
+      }
+    }]
+  }
+}

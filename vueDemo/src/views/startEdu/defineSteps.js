@@ -31,7 +31,7 @@ const steps = [
       description: '在此设置选中题目的基本信息',
       position: 'left'
     }
-  },
+  }
   // {
   //   element: '.international-icon',
   //   popover: {
