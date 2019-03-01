@@ -1,0 +1,359 @@
+[
+  {
+    "id": 1,
+    "code": "01",
+    "event": "事件1",
+    "name": "办公用品",
+    "timeLine": 100,
+    "comment": "这是一个",
+    "usedTags": ["01", "02", "03"],
+    "children": [{
+        "id": 2,
+        "code": "0101",
+        "name": "水性笔",
+        "comment": "无",
+        "limitNum":18
+      },
+      {
+        "id": 3,
+        "code": "0102",
+        "name": "透明胶带",
+        "event": "台历",
+
+        "timeLine": 90,
+
+        "comment": "无"
+
+
+      },{
+        "id": 4,
+        "code": "0103",
+        "name": "曲别针",
+        "comment": "无"
+      },{
+        "id": 5,
+        "code": "0104",
+        "name": "铅笔",
+        "comment": "无"
+      },{
+        "id": 6,
+        "code": "0105",
+        "name": "橡皮",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 7,
+        "code": "0106",
+        "name": "记事本(普通)",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 8,
+        "code": "0107",
+        "name": "A4纸",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 9,
+        "code": "0108",
+        "name": "硒鼓",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 10,
+        "code": "0109",
+        "name": "白板笔",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 11,
+        "code": "0110",
+        "name": "电池（7号）",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 12,
+        "code": "0111",
+        "name": "电池（5号）",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 13,
+        "code": "0112",
+        "name": "文件夹",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 14,
+        "code": "0113",
+        "name": "活页夹",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 15,
+        "code": "0114",
+        "name": "便利贴",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 16,
+        "code": "0115",
+        "name": "笔筒",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 17,
+        "code": "0116",
+        "name": "胶棒",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 18,
+        "code": "0117",
+        "name": "档案袋",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 19,
+        "code": "0118",
+        "name": "档案袋",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 20,
+        "code": "0119",
+        "name": "剪刀",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 21,
+        "code": "0120",
+        "name": "计算器",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 22,
+        "code": "0121",
+        "name": "装订器",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 23,
+        "code": "0122",
+        "name": "文件筐",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 24,
+        "code": "0123",
+        "name": "印章盒",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 25,
+        "code": "0124",
+        "name": "印油",
+        "timeLine": 90,
+        "comment": "无"
+      },{
+        "id": 26,
+        "code": "0125",
+        "name": "卷笔刀",
+        "timeLine": 90,
+        "comment": "无"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "code": "02",
+    "name": "VI定制品",
+    "comment": "这是一个",
+    "usedTags": ["01", "02", "03"],
+    "children": [{
+        "id": 28,
+        "code": "0201",
+        "name": "记事本",
+        "comment": "无"
+      },
+
+      {
+        "id": 29,
+        "code": "0202",
+        "name": "logo手提袋",
+        "comment": "无"
+      },
+      {
+        "id": 30,
+        "code": "0203",
+        "name": "信封",
+        "comment": "无"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "code": "03",
+    "name": "低值易耗品",
+    "comment": "这是一个",
+    "usedTags": ["01", "02", "03"],
+    "children": [{
+        "id": 32,
+        "code": "0301",
+        "name": "电脑包",
+        "timeLine": 10,
+        "comment": "无"
+      },
+      {
+        "id": 33,
+        "code": "0302",
+        "name": "鼠标",
+        "event": "台历",
+        "timeLine": 90,
+        "comment": "无"
+      },
+      {
+        "id": 34,
+        "code": "0303",
+        "name": "键盘",
+        "comment": "无"
+      },
+      {
+        "id": 351,
+        "code": "0304",
+        "name": "内存条",
+        "comment": "无"
+      },{
+        "id": 352,
+        "code": "0305",
+        "name": "移动硬盘",
+        "comment": "无"
+      },{
+        "id": 353,
+        "code": "0306",
+        "name": "录音笔",
+        "comment": "无"
+      },{
+        "id": 354,
+        "code": "0307",
+        "name": "刻录机",
+        "comment": "无"
+      },{
+        "id": 355,
+        "code": "0308",
+        "name": "电话座机",
+        "comment": "无"
+      },{
+        "id": 356,
+        "code": "0309",
+        "name": "U盘",
+        "comment": "无"
+      },{
+        "id": 357,
+        "code": "0310",
+        "name": "翻页器",
+        "comment": "无"
+      },{
+        "id": 358,
+        "code": "0311",
+        "name": "无线路由器",
+        "comment": "无"
+      }
+
+    ]
+  },
+  {
+    "id": 35,
+    "code": "04",
+    "name": "福利礼品",
+    "comment": "这是一个",
+    "usedTags": ["01", "02", "03"],
+    "children": [{
+        "id": 36,
+        "code": "0401",
+        "name": "电脑包",
+        "timeLine": 10,
+        "comment": "无"
+      },
+      {
+        "id": 37,
+        "code": "0402",
+        "name": "鼠标",
+        "event": "台历",
+        "timeLine": 90,
+        "comment": "无"
+      },
+      {
+        "id": 38,
+        "code": "0403",
+        "name": "键盘",
+        "comment": "无"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "code": "05",
+    "name": "年会奖品",
+    "comment": "这是一个",
+    "usedTags": ["01", "02", "03"],
+    "children": [{
+        "id": 40,
+        "code": "0501",
+        "name": "狗",
+        "comment": "2018公司定制吉祥物"
+      },
+      {
+        "id": 41,
+        "code": "0502",
+        "name": "鼠标",
+        "event": "台历",
+        "timeLine": 90,
+        "comment": "无"
+      },
+      {
+        "id": 42,
+        "code": "0503",
+        "name": "键盘",
+        "comment": "无"
+      }
+    ]
+  },{
+    "id": 43,
+    "code": "06",
+    "name": "低值易耗品",
+    "comment": "这是一个",
+    "usedTags": ["01", "02", "03"],
+    "children": [{
+        "id": 44,
+        "code": "0601",
+        "name": "电脑包",
+        "timeLine": 10,
+        "comment": "2018公司级月度活动奖励"
+      },
+      {
+        "id": 45,
+        "code": "0602",
+        "name": "鼠标",
+        "event": "台历",
+        "timeLine": 90,
+        "comment": "2018年度评优奖励"
+      }
+    ]
+  },{
+    "id": 1024,
+    "code": "99",
+    "name": "其它",
+    "comment": "这是一个",
+    "usedTags": ["01", "02", "03"],
+    "children": [{
+        "id": 1025,
+        "code": "9901",
+        "name": "电脑包",
+        "timeLine": 10,
+        "comment": "无"
+      }
+    ]
+  }
+
+]

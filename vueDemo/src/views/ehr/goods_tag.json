@@ -1,7 +1,8 @@
 [
     {
         "code":"01",
-        "name":"日常办公",
+        "name":"月度",
+        "tagStyle":"success",
         "content":"平时上班大家领的东东",
         "meta":{
             "createPerson": "Bruce",
@@ -12,7 +13,7 @@
     },
     {
         "code":"02",
-        "name":"活动礼品",
+        "name":"季度",
         "content":"年会活动礼品",
         "meta":{
             "createPerson": "Bruce",

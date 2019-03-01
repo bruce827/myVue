@@ -24,7 +24,8 @@ for (let i = 0; i < count; i++) {
     comment_disabled: true,
     pageviews: '@integer(300, 5000)',
     image_uri,
-    platforms: ['a-platform']
+    platforms: ['a-platform'],
+    address:'@county(true)'+'@integer(0,1000)'+'号 邮编:'+'@zip()'
   }))
 }
 
@@ -68,5 +69,8 @@ export default {
   }),
   updateArticle: () => ({
     data: 'success'
+  }),
+  getInlineSortTable: () => ({
+    data: List
   })
 }

@@ -39,3 +39,11 @@ export function updateArticle(data) {
     data
   })
 }
+
+// 行内排序table样例
+export function getInlineSortTable(data) {
+  return request({
+    url: '/article/inlineSortTable',
+    method: 'get'
+  })
+}

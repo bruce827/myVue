@@ -14,14 +14,19 @@ const dormRouter = {
   name: '格力宿舍管理系统',
   meta: {
     title: '格力宿舍管理系统',
-    icon: 'dorm'
+    icon: 'dorm',
+    roles:['admin','geree']
   },
   children: [
     {
       path: 'home',
       component: () => import('@/views/dorm/home'),
       name: '首页',
-      meta: { title: '首页', noCache: true }
+      meta: { 
+        title: '首页', 
+        noCache: true, 
+        
+      }
     },
     {
       path: 'charge',

@@ -44,7 +44,11 @@
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
       </div>
       <div class="tips">
-        <span style="margin-right:18px;">{{ $t('login.opsname') }} : editor</span>
+        <span style="margin-right:18px;">库存管理系统 : ehr</span>
+        <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
+      </div>
+       <div class="tips">
+        <span style="margin-right:18px;"> 格力系统 : geree</span>
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
       </div>
 
@@ -142,7 +146,7 @@ export default {
               this.$router.push({ path: this.redirect || '/' })
             }).
             catch(() => {
-              // 验证失败则
+              // 验证失败
               this.loading = false
             })
         } else {

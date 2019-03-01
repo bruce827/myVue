@@ -16,6 +16,7 @@ import startEduRouter from './modules/startEdu'
 import opinionRouter from './modules/opinion'
 import articleRouter from './modules/article'
 import dormRouter from './modules/dorm'
+import ehrRouter from './modules/ehr'
 /**
  *=========== 路由的详细配置说明==============
  **/
@@ -102,8 +103,7 @@ export const constantRouterMap = [
   // opinionRouter,
   // 微信文章管理
   // articleRouter,
-  // 格力宿舍管理系统
-  dormRouter,
+ 
   // 文档
   {
     path: '/documentation',
@@ -147,6 +147,10 @@ export default new Router({
 // export const asyncRouterMap = [tableRouter]
 // 异步挂载路由，动态按需加载
 export const asyncRouterMap = [
+   // 格力宿舍管理系统
+   dormRouter,
+  // 库存管理
+  ehrRouter,
   // 权限测试页
   {
     // 路由地址
@@ -163,7 +167,7 @@ export const asyncRouterMap = [
       // 图标
       icon: 'lock',
       // 页面需要的权限
-      roles: ['admin', 'editor']
+      roles: ['admin', 'geree']
     },
     // 子菜单
     children: [
@@ -395,6 +399,6 @@ export const asyncRouterMap = [
     ]
   },
 
-  // 404页面，此页面需要在最后加载
+  // 404页面，此页面需要在最后加载,如果写在公共路由里面所有页面均会被拦截
   { path: '*', redirect: '/404', hidden: true }
 ]

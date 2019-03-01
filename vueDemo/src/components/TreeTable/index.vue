@@ -7,7 +7,9 @@
           <i v-if="!scope.row._expanded" class="el-icon-plus"/>
           <i v-else class="el-icon-minus"/>
         </span>
-        {{ scope.$index }}
+        
+        {{scope.row.code}} 
+         <!-- {{ scope.$index }}  -->
       </template>
     </el-table-column>
     <el-table-column v-for="(column, index) in columns" v-else :key="column.value" :label="column.text" :width="column.width">
@@ -27,10 +29,7 @@
 </template>
 
 <script>
-/**
-  Auth: Lei.j1ang
-  Created: 2018/1/19-13:59
-*/
+
 import treeToArray from './eval'
 export default {
   name: 'TreeTable',

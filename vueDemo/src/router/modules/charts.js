@@ -31,6 +31,12 @@ const chartsRouter = {
       meta: { title: 'mixChart', noCache: true }
     },
     {
+      path: 'scatter',
+      component: () => import('@/views/charts/scatter'),
+      name: '散点图',
+      meta: { title: '散点图', noCache: true }
+    },
+    {
       path: 'map',
       component: () => import('@/views/charts/map'),
       name: '地图（示意图）',

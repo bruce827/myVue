@@ -56,6 +56,13 @@ const tableRouter = {
     // },
     {
       // hidden:true,
+      path: 'inlineSortTable',
+      component: () => import('@/views/table/inlineSortTable/inlineSortTable'),
+      name: '行內排序',
+      meta: { title: '行內排序表格' }
+    },
+    {
+      // hidden:true,
       path: 'complex-table',
       component: () => import('@/views/table/complexTable'),
       name: 'ComplexTable',

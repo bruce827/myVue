@@ -9,6 +9,7 @@
         <div
           v-for="(card,index) in timeLineData "
           class="cd-timeline-block"
+          :key="index"
         >
           <div class="cd-timeline-img">
             <div
