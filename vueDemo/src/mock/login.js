@@ -29,6 +29,13 @@ const userMap = {
     avatar: '/static/userLogo/ehrLogo.jpg',
     name: 'ehr'
   },
+  jdh: {
+    roles: ['jdh'],
+    token: 'jdh',
+    introduction: '简单汇',
+    avatar: '/static/userLogo/jdh.png',
+    name: 'jdh'
+  },
 }
 
 export default {

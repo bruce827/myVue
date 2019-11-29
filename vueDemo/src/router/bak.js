@@ -18,7 +18,6 @@ import articleRouter from './modules/article'
 import dormRouter from './modules/dorm'
 import ehrRouter from './modules/ehr'
 import jdhRouter from './modules/jdh'
-import ceshiRouter from './modules/ceshi'
 /**
  *=========== 路由的详细配置说明==============
  **/
@@ -108,7 +107,6 @@ export const constantRouterMap = [
  
   // 文档
   {
-    // hidden:true,
     path: '/documentation',
     component: Layout,
     redirect: '/documentation/index',
@@ -123,7 +121,6 @@ export const constantRouterMap = [
   },
   // 引导页
   {
-    // hidden:true,
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',
@@ -157,8 +154,6 @@ export const asyncRouterMap = [
   ehrRouter,
   // 简单汇
   jdhRouter,
-  // 通用测试
-  ceshiRouter,
   // 权限测试页
   {
     // 路由地址
@@ -225,7 +220,6 @@ export const asyncRouterMap = [
   tableRouter,
   // 综合实例
   {
-    // hidden:true,
     path: '/example',
     component: Layout,
     redirect: '/example/list',
@@ -258,7 +252,6 @@ export const asyncRouterMap = [
   },
   // tab页面
   {
-    // hidden:true,
     path: '/tab',
     component: Layout,
     children: [
@@ -272,7 +265,6 @@ export const asyncRouterMap = [
   },
   // 错误页面
   {
-    // hidden:true,
     path: '/error',
     component: Layout,
     redirect: 'noredirect',
@@ -298,7 +290,6 @@ export const asyncRouterMap = [
   },
   // 错误页面2
   {
-    // hidden:true,
     path: '/error-log',
     component: Layout,
     redirect: 'noredirect',
@@ -313,7 +304,6 @@ export const asyncRouterMap = [
   },
   // excle导出
   {
-    // hidden:true,
     path: '/excel',
     component: Layout,
     redirect: '/excel/export-excel',
@@ -345,7 +335,6 @@ export const asyncRouterMap = [
   },
   // 压缩导出
   {
-    // hidden:true,
     path: '/zip',
     component: Layout,
     redirect: '/zip/download',
@@ -362,7 +351,6 @@ export const asyncRouterMap = [
   },
   // 主题换肤
   {
-    // hidden:true,
     path: '/theme',
     component: Layout,
     redirect: 'noredirect',
@@ -377,7 +365,6 @@ export const asyncRouterMap = [
   },
   // 剪切板
   {
-    // hidden:true,
     path: '/clipboard',
     component: Layout,
     redirect: 'noredirect',
@@ -392,7 +379,6 @@ export const asyncRouterMap = [
   },
   // 国际化
   {
-    // hidden:true,
     path: '/i18n',
     component: Layout,
     children: [
@@ -406,7 +392,6 @@ export const asyncRouterMap = [
   },
   // 外部链接
   {
-    // hidden:true,
     path: 'external-link',
     component: Layout,
     children: [
@@ -420,3 +405,4 @@ export const asyncRouterMap = [
   // 404页面，此页面需要在最后加载,如果写在公共路由里面所有页面均会被拦截
   { path: '*', redirect: '/404', hidden: true }
 ]
+

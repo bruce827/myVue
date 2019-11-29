@@ -102,6 +102,39 @@
         </el-card>
       </el-col>
     </el-row>
+    <el-row :gutter="32">
+      <el-col
+        :xs="24"
+        :md="12"
+      >
+        <el-card>
+          <ve-pie
+            :data="chartData.pieData"
+            :grid="grid"
+            :title="title.wordCloud"
+            :legend="{show:false,right:'right'}"
+          >
+          </ve-pie>
+        </el-card>
+      </el-col>
+      <!-- <el-col
+        :xs="24"
+        :md="12"
+      >
+        <el-card>
+          <ve-bar
+            :data="chartData.barData"
+            :grid="grid"
+            :title="title.bar"
+            :legend="{show:true,right:'right'}"
+            :settings="chartSettings.bar"
+            :xAxis="xAxis.bar"
+            :tooltip="tooltip.bar"
+            :extend="chartExtends.bar"
+          ></ve-bar>
+        </el-card>
+      </el-col> -->
+    </el-row>
   </div>
 </template>
 
@@ -115,6 +148,7 @@ import { VeLine, VeBar, VePie } from "v-charts";
 import lineData from "./chartData/line.json";
 import barData_original from "./chartData/bar.json";
 import pieData_original from "./chartData/pie.json";
+
 
 // 数组对象属性降序排序
 function compareObj(property) {
@@ -160,6 +194,12 @@ export default {
         pie:{
           text: "电商内存品牌知名度",
           subtext:"统计商品评论数量",
+          left:'center'
+
+        },
+        wordCloud:{
+          text:"数据分析行业关键技能",
+          subtext:'数据来源：招聘网站爬取',
           left:'center'
 
         }
@@ -226,6 +266,10 @@ export default {
         pieData: {
           columns: ["类目", "评论数量"],
           rows: null
+        },
+        wordCloud:{
+          columns: ['word', 'count'],
+          rows: null
         }
       }
     };
@@ -234,6 +278,7 @@ export default {
     this.chartData.lineData.rows = lineData["北京"].reverse();
     this.chartData.barData.rows = this.barData.data;
     this.chartData.pieData.rows = this.pieData;
+    this.chartData.wordCloud.rows = this.wordCloud;
   },
   computed: {
     barData: () => {

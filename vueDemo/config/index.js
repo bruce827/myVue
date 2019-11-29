@@ -64,7 +64,7 @@ module.exports = {
      * In most cases please use '/' !!!
      */
     // 发布环境静态文件路径配置
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

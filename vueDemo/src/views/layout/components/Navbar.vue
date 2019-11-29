@@ -9,20 +9,20 @@
       <!-- 报错提示，开发时启用 -->
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
-
-        <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
+        <!-- 全屏显示 -->
+        <!-- <el-tooltip :content="$t('navbar.screenfull')" effect="dark" placement="bottom">
           <screenfull class="screenfull right-menu-item"/>
-        </el-tooltip>
-
-        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
+        </el-tooltip> -->
+        <!-- 布局大小 -->
+        <!-- <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
           <size-select class="international right-menu-item"/>
-        </el-tooltip>
-
-        <lang-select class="international right-menu-item"/>
-
-        <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">
+        </el-tooltip> -->
+        <!-- 语言选择 -->
+        <!-- <lang-select class="international right-menu-item"/> -->
+        <!-- 主题切换 -->
+        <!-- <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">
           <theme-picker class="theme-switch right-menu-item"/>
-        </el-tooltip>
+        </el-tooltip> -->
       </template>
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">

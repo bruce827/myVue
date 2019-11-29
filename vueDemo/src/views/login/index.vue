@@ -39,7 +39,7 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">{{ $t('login.logIn') }}</el-button>
 
-      <div class="tips">
+      <!-- <div class="tips">
         <span>{{ $t('login.username') }} : admin</span>
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
       </div>
@@ -50,6 +50,10 @@
        <div class="tips">
         <span style="margin-right:18px;"> 格力系统 : geree</span>
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
+      </div> -->
+      <div class="tips">
+        <span style="margin-right:18px;"> 简单汇 : jdh</span>
+        <span>{{ $t('login.password') }} : {{ $t('login.any')+'(6位以上)' }}</span>
       </div>
 
       <!-- <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{ $t('login.thirdparty') }}</el-button> -->
@@ -196,6 +200,8 @@ $cursor: #fff;
 
 /* reset element-ui css */
 .login-container {
+  // 添加背景颜色
+  // background: black;
   .el-input {
     display: inline-block;
     height: 47px;
@@ -234,6 +240,9 @@ $light_gray: #eee;
   height: 100%;
   width: 100%;
   background-color: $bg;
+  // background-image: url('/static/userLogo/login.jpeg');
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
   .login-form {
     position: absolute;
     left: 0;

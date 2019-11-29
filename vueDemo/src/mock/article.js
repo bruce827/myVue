@@ -25,20 +25,26 @@ for (let i = 0; i < count; i++) {
     pageviews: '@integer(300, 5000)',
     image_uri,
     platforms: ['a-platform'],
-    address:'@county(true)'+'@integer(0,1000)'+'号 邮编:'+'@zip()'
+    address:'@county(true)'+'@integer(0,1000)'+'号 邮编:'+'@zip()',
+    // 编号
+    number:Mock.Random.string(4)+'-00'+(i+1),
+    'businessType|1':['一般应收账款融资','其它融资']
+
   }))
 }
 
 export default {
   getList: config => {
     // debugger
-    const { importance, type, title, page = 1, limit = 20, sort } = param2Obj(config.url)
+    const { businessType,importance, type, title, page = 1, limit = 20, sort } = param2Obj(config.url)
 
     let mockList = List.filter(item => {
       if (importance && item.importance !== +importance) return false
       if (type && item.type !== type) return false
       // 筛选符合条件的名称
       if (title && item.title.indexOf(title) < 0) return false
+      // 筛选符合条件的业务
+      if (businessType && item.businessType.indexOf(businessType) < 0) return false
       return true
     })
 
