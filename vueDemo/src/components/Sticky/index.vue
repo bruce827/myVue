@@ -35,14 +35,18 @@ export default {
     }
   },
   mounted() {
+    // 获取高度
     this.height = this.$el.getBoundingClientRect().height
+    // 监听滚动变化
     window.addEventListener('scroll', this.handleScroll)
+    // 监听尺寸变化
     window.addEventListener('resize', this.handleReize)
   },
   activated() {
     this.handleScroll()
   },
   destroyed() {
+    // 在页面离开时解除监听
     window.removeEventListener('scroll', this.handleScroll)
     window.removeEventListener('resize', this.handleReize)
   },

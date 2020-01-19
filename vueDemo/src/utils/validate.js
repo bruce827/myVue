@@ -4,7 +4,7 @@
 
 export function isvalidUsername(str) {
   // 每次增加用户需要手动添加验证
-  const valid_map = ['admin', 'editor','geree','ehr','jdh']
+  const valid_map = ['admin', 'editor','geree','ehr','jdh','ceshi']
   return valid_map.indexOf(str.trim()) >= 0
 }
 

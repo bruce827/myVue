@@ -61,6 +61,7 @@ const componentsRouter = {
       meta: { title: 'countTo' }
     },
     {
+      // 小组件
       path: 'mixin',
       component: () => import('@/views/components-demo/mixin'),
       name: 'ComponentMixinDemo',
@@ -95,7 +96,13 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/timeLine'),
       name: '审批流程',
       meta: { title: '审批流程' }
-    }
+    },
+    {
+      path: 'refreshBreak',
+      component: () => import('@/views/components-demo/refreshBreak'),
+      name: '阻止恶意刷新',
+      meta: { title: '阻止恶意刷新' }
+    },
   ]
 }
 

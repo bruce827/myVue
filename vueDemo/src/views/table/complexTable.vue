@@ -12,8 +12,8 @@
       <!-- 重要性筛选，添加清空选项，改变不触发查询 -->
       <el-select
         v-model="listQuery.importance"
-        :placeholder="$t('table.importance')"
-        clearable
+        :placeholder="$t('table.importance')" 
+        clearable="true"
         style="width: 90px"
         class="filter-item">
         <el-option
@@ -31,7 +31,6 @@
       <el-select
         v-model="listQuery.type"
         :placeholder="$t('table.type')"
-        clearable
         class="filter-item"
         style="width: 130px">
         <el-option
@@ -211,7 +210,10 @@
         style="width: 400px; margin-left:50px;">
         <!-- 类型 -->
         <el-form-item :label="$t('table.type')" prop="type">
-          <el-select v-model="temp.type" class="filter-item" placeholder="Please select">
+          <el-select 
+              v-model="temp.type" 
+              class="filter-item" 
+              placeholder="请选择类型">
             <el-option
               v-for="item in calendarTypeOptions"
               :key="item.key"
@@ -219,20 +221,22 @@
               :value="item.key"/>
           </el-select>
         </el-form-item>
-        <!-- 时间 -->
+        <!-- 日期和时间：今日之前不可选择且不可清空 -->
         <el-form-item :label="$t('table.date')" prop="timestamp">
           <el-date-picker
             v-model="temp.timestamp"
             type="datetime"
-            placeholder="Please pick a date"/>
+            placeholder="请选择时间"/>
         </el-form-item>
-        <!-- 标题 -->
+        <!-- 标题:必填、长度校验 -->
         <el-form-item :label="$t('table.title')" prop="title">
           <el-input v-model="temp.title" placeholder="在此输入标题"/>
         </el-form-item>
-        <!-- 状态 -->
+        <!-- 状态 :非必填的下拉框可以是空状态-->
         <el-form-item :label="$t('table.status')">
-          <el-select v-model="temp.status" class="filter-item">
+          <el-select 
+            v-model="temp.status" 
+            class="filter-item">
             <el-option
               v-for="item in statusOptions"
               :key="item"
@@ -245,10 +249,12 @@
           <el-rate
             v-model="temp.importance"
             :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
+            show-text
+            :texts="['低','中','高']"
             :max="3"
             style="margin-top:8px;"/>
         </el-form-item>
-        <!-- 评价 -->
+        <!-- 评价：文本域根据父级容器大小自适应 -->
         <el-form-item :label="$t('table.remark')" prop="remark">
           <el-input
             :autosize="{ minRows: 2, maxRows: 4}"
@@ -312,7 +318,23 @@ const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
   acc[cur.key] = cur.display_name
   return acc
 }, {})
-
+/*
+重要性
+*/
+const importanceLable = [
+  {
+    key:1,
+    label:'一般'
+  },
+  {
+    key:2,
+    label:'重要'
+  },
+  {
+    key:3,
+    label:'紧急'
+  }
+]
 /**
  * 点评输入框验证
  * params:text[string|number]=>输入的内容；callback[fun]：回调
@@ -361,6 +383,9 @@ export default {
     },
     typeFilter(type) {
       return calendarTypeKeyValue[type]
+    },
+    importanceLableFilter(importanceLable){
+      return importanceOptions.map((i,v)=>v)
     }
   },
   data() {
@@ -378,7 +403,7 @@ export default {
         type: undefined,
         sort: '+id'
       },
-      // 重要性码表，展现形式为图形
+      // 重要性码表，展现形式为图形，有文字提示
       importanceOptions: [
         {
           value: 1,
@@ -408,6 +433,7 @@ export default {
         'published', 'draft', 'deleted'
       ],
       showReviewer: false,
+      // 新建、编辑页面数据绑定
       temp: {
         id: undefined,
         importance: 1,
@@ -426,6 +452,7 @@ export default {
       dialogPvVisible: false,
       pvData: [],
       rules: {
+        // 类型进行非空校验
         type: [
           {
             // 必填
@@ -450,6 +477,10 @@ export default {
             message: '标题为必填',
             // 失去焦点时候触发
             trigger: 'blur'
+          },{
+            min:5,
+            message:"您输入的标题太短啦",
+            trigger:'blur'
           }
         ],
         // 可以添加自定义验证
@@ -514,6 +545,7 @@ export default {
           clearValidate()
       })
     },
+    // 创建
     createData() {
       this.
         $refs['dataForm'].
@@ -549,13 +581,16 @@ export default {
           clearValidate()
       })
     },
+    // 修改
     updateData() {
       this.
         $refs['dataForm'].
         validate(valid => {
           if (valid) {
             const tempData = Object.assign({}, this.temp)
+            // 转换为时间戳
             tempData.timestamp = +new Date(tempData.timestamp) // change Thu Nov 30 2017 16:41:05 GMT+0800 (CST) to 1512031311464
+            // 样例数据，同样不需要返回
             updateArticle(tempData).then(() => {
               for (const v of this.list) {
                 if (v.id === this.temp.id) {
@@ -615,7 +650,8 @@ export default {
       if (dyHeight > 930) {
         this.listQuery.limit = 20
       }
-    }
+    },
+
   }
 }
 </script>

@@ -152,7 +152,7 @@ export default new Router({
 // 异步挂载路由，动态按需加载
 export const asyncRouterMap = [
    // 格力宿舍管理系统
-   dormRouter,
+  dormRouter,
   // 库存管理
   ehrRouter,
   // 简单汇

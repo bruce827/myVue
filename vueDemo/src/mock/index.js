@@ -3,6 +3,7 @@ import loginAPI from './login'
 import articleAPI from './article'
 import remoteSearchAPI from './remoteSearch'
 import transactionAPI from './transaction'
+import ceshiAPI from './ceshi'
 // 格力项目
 import dormAPI from './dorm'
 
@@ -46,4 +47,7 @@ Mock.mock(/\/dorm\/getrunningTask/, 'get', dormAPI.getrunningTask)
 Mock.mock(/\/dorm\/historyTasks/, 'get', dormAPI.historyTasks)
 Mock.mock(/\/dorm\/systemMsg/, 'get', dormAPI.systemMsg)
 
+// 通用测试用例模拟数据
+Mock.mock(/\/ceshi\/list/, 'get', ceshiAPI.getList)
+Mock.mock(/\/ceshi\/pv/, 'get', ceshiAPI.getPv)
 export default Mock
