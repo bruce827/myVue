@@ -1,0 +1,26 @@
+
+
+
+@url = http://localhost:4001/
+
+
+### express服务测试
+GET  {{url}}
+
+### 文件上传
+POST {{url}}upload
+content-type: application/json
+
+{
+    "data":"dd"
+}
+### 获取组织机构
+GET  {{url}}org/getOrg
+
+### 新增组织机构
+POST {{url}}org/insertOrg
+content-type: application/json
+
+{
+    "data":"dd"
+}
