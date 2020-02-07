@@ -103,6 +103,12 @@ const componentsRouter = {
       name: '阻止恶意刷新',
       meta: { title: '阻止恶意刷新' }
     },
+    {
+      path: 'bigFileUpload',
+      component: () => import('@/views/components-demo/bigFileUpload'),
+      name: '大文件上传',
+      meta: { title: '大文件上传' }
+    },
   ]
 }
 
