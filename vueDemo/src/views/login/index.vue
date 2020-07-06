@@ -1,5 +1,7 @@
 <template>
-  <div class="login-container">
+  <div 
+    class="login-container"
+    >
 
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
@@ -47,14 +49,14 @@
         <span style="margin-right:18px;">库存管理系统 : ehr</span>
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
       </div>
-       <div class="tips">
+      <div class="tips">
         <span style="margin-right:18px;"> 格力系统 : geree</span>
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
       </div> -->
-      <div class="tips">
+      <!-- <div class="tips">
         <span style="margin-right:18px;"> 简单汇 : jdh</span>
         <span>{{ $t('login.password') }} : {{ $t('login.any')+'(6位以上)' }}</span>
-      </div>
+      </div> -->
 
       <!-- <el-button class="thirdparty-button" type="primary" @click="showDialog=true">{{ $t('login.thirdparty') }}</el-button> -->
     </el-form>
@@ -240,11 +242,12 @@ $light_gray: #eee;
   height: 100%;
   width: 100%;
   background-color: $bg;
-  // background-image: url('/static/userLogo/login.jpeg');
-  // background-repeat: no-repeat;
-  // background-size: 100% 100%;
+  background-image: url('../../assets/login/login.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
   .login-form {
     position: absolute;
+    background: rgba($color: #000000, $alpha: .7);
     left: 0;
     right: 0;
     width: 520px;

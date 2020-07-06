@@ -6,6 +6,8 @@ import transactionAPI from './transaction'
 import ceshiAPI from './ceshi'
 // 格力项目
 import dormAPI from './dorm'
+// 通用码表 
+import commonCodeAPI from './commonCode'
 
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300
@@ -25,6 +27,10 @@ Mock.setup({
 Mock.mock(/\/login\/login/, 'post', loginAPI.loginByUsername)
 Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
 Mock.mock(/\/user\/info\.*/, 'get', loginAPI.getUserInfo)
+
+// 通用码表
+Mock.mock(/\/commonCode\/baseCode/, 'get', commonCodeAPI.getCommonCode)
+Mock.mock(/\/commonCode\/goodsCode/, 'get', commonCodeAPI.getGoodsCode)
 
 // 文章相关
 Mock.mock(/\/article\/list/, 'get', articleAPI.getList)
@@ -50,4 +56,6 @@ Mock.mock(/\/dorm\/systemMsg/, 'get', dormAPI.systemMsg)
 // 通用测试用例模拟数据
 Mock.mock(/\/ceshi\/list/, 'get', ceshiAPI.getList)
 Mock.mock(/\/ceshi\/pv/, 'get', ceshiAPI.getPv)
+
+// 
 export default Mock

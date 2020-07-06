@@ -9,7 +9,7 @@
         </span>
         
         {{scope.row.code}} 
-         <!-- {{ scope.$index }}  -->
+        <!-- {{ scope.$index }}  -->
       </template>
     </el-table-column>
     <el-table-column v-for="(column, index) in columns" v-else :key="column.value" :label="column.text" :width="column.width">

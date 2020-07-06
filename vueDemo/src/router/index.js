@@ -159,6 +159,8 @@ export const asyncRouterMap = [
   jdhRouter,
   // 通用测试
   ceshiRouter,
+  // 行走书店
+  // xzsdRouter,
   // 权限测试页
   {
     // 路由地址
