@@ -1,9 +1,12 @@
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
-      <keep-alive :include="cachedViews">
+      <!-- <keep-alive :include="cachedViews">
         <router-view :key="key"/>
-      </keep-alive>
+      </keep-alive> -->
+      <!-- 作为一个组件库练习项目，大多时候不用快捷标签导航 -->
+        <router-view/>
+
     </transition>
   </section>
 </template>

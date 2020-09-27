@@ -53,6 +53,7 @@ const user = {
           //  保存cookie
           commit('SET_TOKEN', data.token)
           setToken(response.data.token)
+          // 登录成功后获取通用码表
           dispatch('commonCode/SET_COMMON_CODE')
           resolve()
         }).catch(error => {

@@ -19,6 +19,10 @@ import dormRouter from './modules/dorm'
 import ehrRouter from './modules/ehr'
 import jdhRouter from './modules/jdh'
 import ceshiRouter from './modules/ceshi'
+
+import xzsdRouter from './modules/xzsd'
+
+
 /**
  *=========== 路由的详细配置说明==============
  **/
@@ -34,6 +38,7 @@ import ceshiRouter from './modules/ceshi'
 * redirect: noredirect
 * //设定路由的名字，一定要填写不然使用<keep-alive>时会出现各种问题
 * name:'router-name'
+* affix: true 如果配置了标签页快捷导航，此属性用于固定
 * meta : {
     roles: ['admin','editor']     //设置路由的 权限，支持多个权限叠加
     title: 'title'                //在侧边栏和面包屑中的名字
@@ -105,7 +110,6 @@ export const constantRouterMap = [
   // opinionRouter,
   // 微信文章管理
   // articleRouter,
- 
   // 文档
   {
     // hidden:true,
@@ -160,7 +164,7 @@ export const asyncRouterMap = [
   // 通用测试
   ceshiRouter,
   // 行走书店
-  // xzsdRouter,
+  xzsdRouter,
   // 权限测试页
   {
     // 路由地址

@@ -3,23 +3,23 @@
 */
 import Layout from '@/views/layout/Layout'
 
-const articleRouter = {
+const xzsdRouter = {
     path: '/xzsd',
     component: Layout,
     redirect: 'noredirect',
-    name: '行走书店',
+    name: 'walkingStore',
     meta: {
         title: '行走书店',
-        icon: 'article'
+        icon: 'book'
     },
     children: [
         {
-            path: 'keyboard',
-            component: () => import('@/views/charts/keyboard'),
-            name: '商品管理',
+            path: 'goods',
+            component: () => import('@/views/xzsd/goods'),
+            name: 'Goods',
             meta: { title: '商品管理', noCache: true }
         }
     ]
 }
 
-export default articleRouter
+export default xzsdRouter

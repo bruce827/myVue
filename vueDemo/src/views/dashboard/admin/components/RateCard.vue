@@ -17,13 +17,13 @@
       </div>
       <div class="progress-item">
         <span>平台意见处理率</span>
-        <el-progress :percentage="0" status="danger"/>
+        <el-progress :percentage="0" />
       </div>
       <div class="progress-item">
         <span>部门意见处理率</span>
         <el-progress :percentage="100" status="success"/>
       </div>
-       <div class="progress-item">
+      <div class="progress-item">
         <span>员工开发人员比例</span>
         <el-progress :percentage="60" />
       </div>
@@ -45,7 +45,9 @@ export default {
         success: 'success',
         pending: 'danger'
       }
-      return statusMap[status]
+      if(status){
+        return statusMap[status]
+      }
     }
   },
   data() {
