@@ -22,6 +22,8 @@ import ceshiRouter from './modules/ceshi'
 
 import xzsdRouter from './modules/xzsd'
 
+import ucallRouter from './modules/ucall'
+
 
 /**
  *=========== 路由的详细配置说明==============
@@ -165,6 +167,8 @@ export const asyncRouterMap = [
   ceshiRouter,
   // 行走书店
   xzsdRouter,
+  // ucall中台
+  ucallRouter,
   // 权限测试页
   {
     // 路由地址

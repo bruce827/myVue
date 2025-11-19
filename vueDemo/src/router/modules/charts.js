@@ -62,7 +62,16 @@ const chartsRouter = {
         title: 'v-charts集成',
         noCache: true
       }
-    }
+    },
+    {
+      path: 'AVA',
+      component: () => import('@/views/charts/avaCharts'),
+      name: 'AVA集成',
+      meta: {
+        title: 'AVA集成',
+        noCache: true
+      }
+    },
 
   ]
 }

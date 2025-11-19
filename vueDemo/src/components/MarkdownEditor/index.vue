@@ -40,7 +40,88 @@ export default {
     toolbar: {
       type: Array,
       default: function() {
-        return []
+        return [
+          {
+            name: "bold",
+            action: SimpleMDE.toggleBold,
+            className: "fa fa-bold",
+            title: "粗体",
+          },
+          {
+            name: "italic",
+            action: SimpleMDE.toggleItalic,
+            className: "fa fa-italic",
+            title: "斜体",
+          },
+          {
+            name: "quote",
+            action: SimpleMDE.toggleBlockquote,
+            className: "fa fa-quote-left",
+            title: "引用",
+          },
+          {
+            name: "code",
+            action: SimpleMDE.toggleCodeBlock,
+            className: "fa fa-code",
+            title: "代码",
+          },
+          {
+            name: "strikethrough",
+            action: SimpleMDE.toggleStrikethrough,
+            className: "fa fa-strikethrough",
+            title: "更正",
+          },
+          {
+            name: "heading-1",
+            action: SimpleMDE.toggleHeading1,
+            className: "fa fa-header fa-header-x fa-header-1",
+            title: "一级标题",
+          },
+          {
+            name: "heading-1",
+            action: SimpleMDE.toggleHeading1,
+            className: "fa fa-header fa-header-x fa-header-1",
+            title: "二级标题",
+          },
+          // 目前两级标题就够使用了
+          // {
+          //   name: "heading-3",
+          //   action: SimpleMDE.toggleHeading3,
+          //   className: "fa fa-header fa-header-x fa-header-3",
+          //   title: "三级标题",
+          // },
+          {
+            name: "unordered-list",
+            action: SimpleMDE.toggleUnorderedList,
+            className: "fa fa-list-ul",
+            title: "无序列表",
+          },
+          {
+            name: "ordered-list",
+            action: SimpleMDE.toggleOrderedList,
+            className: "fa fa-list-ol",
+            title: "有序列表",
+          },
+          "|",
+          {
+            name: "preview",
+            action: SimpleMDE.togglePreview,
+            className: "fa fa-eye no-disable",
+            title: "预览",
+          },
+          {
+            name: "side-by-side",
+            action: SimpleMDE.toggleSideBySide,
+            className: "fa fa-columns no-disable no-mobile",
+            title: "双栏模式",
+          },
+          {
+            name: "fullscreen",
+            action: SimpleMDE.toggleFullScreen,
+            className: "fa fa-arrows-alt no-disable no-mobile",
+            title: "全屏编辑",
+          }
+        ]
       }
     }
   },
